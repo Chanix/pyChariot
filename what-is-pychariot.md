@@ -14,7 +14,7 @@ pyChariot 是一个将网站应用快速封装为跨平台桌面应用的小工�
 
 <div class="tip custom-block" style="padding-top: 8px">
 
-只是想尝试一下？跳到 [快速开始](getting_started)。
+[//]: # (只是想尝试一下？跳到 [快速开始]&#40;getting_started&#41;。)
 
 </div>
 
