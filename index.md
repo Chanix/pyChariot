@@ -1,0 +1,35 @@
+---
+# https://vitepress.dev/reference/default-theme-home-page
+layout: home
+
+title: pyChariot
+titleTemplate: 聚焦桌面 快速实现
+
+hero:
+  name: "pyChariot"
+  text: "聚焦桌面 快速实现"
+  tagline: "利用 WebApp 开发技术，轻松构建跨平台桌面应用"
+  actions:
+    - theme: brand
+      text: 什么是 pyChariot?
+      link: /what-is-pychariot
+    - theme: alt
+      text: 快速开始
+      link: /getting-started
+    - theme: alt
+      text: JS 扩展
+      link: /jsapi
+    - theme: alt
+      text: 立即下载
+      link: https://github.com/Chanix/pyChariot/releases
+
+features:
+  - title: 基于 Web 技术
+    details: 利用 WebApp 开发技术，轻松构建跨平台桌面应用，更可直接封装网站成为桌面应用。复用现有资源，快速构建，学习曲线平缓。
+  - title: 跨平台支持
+    details: 支持 Windows、MacOS、Linux、BSD 等操作系统（包括衍生与兼容版本），一套代码库构建跨平台的桌面应用程序。
+  - title: 内置 JS 扩展
+    details: 内置 JS 扩展对象，JavaScript 可直接调用，提供原生操作系统模块访问、本地资源操作等功能，以支持开发各种类型的桌面应用程序。
+  - title: 易于打包和分发
+    details: 简单方便的打包和分发机制，只需分发对应平台的 pyChariot 可执行文件和应用包即可。绿色分发，无需安装，更可进一步生成为单个文件。
+---
