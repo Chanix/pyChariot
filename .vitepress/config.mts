@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  outDir: './public',
+  outDir: './docs',
   base: '/pyChariot/',
   title: "pyChariot",
   description: "pyChariot, 基于 HTML5 的桌面应用开发工具。",
