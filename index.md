@@ -11,7 +11,7 @@ hero:
   tagline: "利用 WebApp 开发技术，轻松构建跨平台桌面应用"
   actions:
     - theme: brand
-      text: 什么是 pyChariot?
+      text: pyChariot 是什么
       link: /what-is-pychariot
     - theme: alt
       text: 快速开始
