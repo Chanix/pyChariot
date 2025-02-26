@@ -45,6 +45,10 @@ export default defineConfig({
         copyright: `版权所有 © 2025-${new Date().getFullYear()}, pyChariot, Chanix@GitHub`
       },
 
+      outline: {
+        label: '本页导航'
+      },
+
       sidebar: [
         {
           text: 'pyChariot 简介',
