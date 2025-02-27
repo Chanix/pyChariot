@@ -2,10 +2,10 @@
 layout: doc
 ---
 
-# 基础功能 pyChariot.core
-基础核心功能，对 pyChariot 最基本的管理与操作
+# pyChariot.core
+基础功能，对 pyChariot 最基本的管理与操作
 
-## pyChariot.core.noop() <Badge type="tip" text="Since 25.3.1.1" /> {#null}
+## noop() <Badge type="tip" text="Since 25.3.1.1" /> {#null}
 
 返回 null
 
@@ -23,7 +23,7 @@ for (var i = 0; i < 100; i++) {
 console.log((new Date().getTime()) - tsStart);
 ```
 
-## pyChariot.core.exit() <Badge type="tip" text="Since 25.3.1.1" /> {#exit}
+## exit() <Badge type="tip" text="Since 25.3.1.1" /> {#exit}
 
 退出运行，返回指定值。
 
@@ -38,7 +38,7 @@ __A.core.exit();
 __A.core.exit(100);
 ```
 
-## pyChariot.core.getArgv(para) <Badge type="tip" text="Since 25.3.5.1" /> {#getargv}
+## getArgv(para) <Badge type="tip" text="Since 25.3.5.1" /> {#getargv}
 
 获取执行 pyChariot 时使用的命令行参数。
 

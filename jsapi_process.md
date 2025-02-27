@@ -2,37 +2,38 @@
 layout: doc
 ---
 
-# 进程管理 pyChariot.process
+# pyChariot.process
 
-操作系统的进程管理与操作
+进程管理，操作系统的进程管理与操作
 
-## pyChariot.process.exec(bin_path, parameters) <Badge type="tip" text="Since 25.3.5.1" /> {#run}
+## execute(bin_path, parameters) <Badge type="tip" text="Since 25.3.5.1" /> {#run}
 
 运行指定的可执行文件
 
-| 参数        | 类型     | 说明         |
+| 参数         | 类型     | 说明         |
 |:-----------|:-------|:-----------|
-| bin_path   | string | 可执行文件名     |   
+| bin_path   | string | 执行文件名      |   
 | parameters | string | 命令行参数，可忽略。 |   
 
-| 返回值    | 说明      |
-|:-------|:--------|
-| number | 新实例的进程号 |
+| 返回值 | 说明  |
+|:----|:----|
+| int | 进程号 |
 
 ```javascript
-await __A.process.exec('notepad');
-```
-```javascript
-await __A.process.exec('notepad', '/aaa.txt');
+await __A.process.execute('notepad');
 ```
 
-## pyChariot.process.execwait(bin_path, parameters) <Badge type="tip" text="Since 25.3.5.1" /> {#runwait}
+```javascript
+await __A.process.execute('notepad', '/aaa.txt');
+```
+
+## executeWait(bin_path, parameters) <Badge type="tip" text="Since 25.3.5.1" /> {#runwait}
 
 运行指定的可执行文件，并等待其运行完毕。<br />运行完毕后，返回运行结果信息。
 
-| 参数        | 类型     | 说明         |
+| 参数         | 类型     | 说明         |
 |:-----------|:-------|:-----------|
-| bin_path   | string | 可执行文件名     |   
+| bin_path   | string | 执行文件名      |   
 | parameters | string | 命令行参数，可忽略。 |   
 
 | 返回值    | 说明                     |
@@ -43,9 +44,114 @@ await __A.process.exec('notepad', '/aaa.txt');
 |        | stderr (string) 标准错误   |
 
 ```javascript
-await __A.process.execwait('notepad');
-```
-```javascript
-await __A.process.execwait('notepad', '/aaa.txt');
+await __A.process.executeWait('notepad');
 ```
 
+```javascript
+await __A.process.executeWait('notepad', '/aaa.txt');
+```
+
+## list() <Badge type="tip" text="Since 25.3.5.1" /> {#list}
+
+列出操作系统中的所有进程号。
+
+| 返回值   | 说明             |
+|:------|:---------------|
+| array | 以操作系统进程号为元素的数组 |
+
+```javascript
+await __A.process.list();
+```
+
+## exists(pid) <Badge type="tip" text="Since 25.3.5.1" /> {#exists}
+
+检查指定进程号的进程是否存在
+
+| 参数  | 类型  | 说明  |
+|:----|:----|:----|
+| pid | int | 进程号 |   
+
+| 返回值     | 说明 |
+|:--------|:---|
+| boolean |    |
+
+```javascript
+await __A.process.exists(0);
+```
+
+## getInformation(pid) <Badge type="tip" text="Since 25.3.5.1" /> {#getInformation}
+
+获得指定进程的详细信息
+
+| 参数  | 类型  | 说明  |
+|:----|:----|:----|
+| pid | int | 进程号 |   
+
+| 返回值    | 说明      |
+|:-------|:--------|
+| object | 进程的详细信息 |
+
+```javascript
+await __A.process.getInformation(999);
+```
+
+## send_signal(pid, signal) <Badge type="tip" text="Since 25.3.5.1" /> {#send_signal}
+
+向进程传递信号
+
+| 参数     | 类型  | 说明   |
+|:-------|:----|:-----|
+| pid    | int | 进程号  |   
+| signal | int | 信号编码 |   
+
+```javascript
+await __A.process.send_signal(999，999);
+```
+
+## suspend(pid) <Badge type="tip" text="Since 25.3.5.1" /> {#suspend}
+
+挂起（暂停运行）指定的进程
+
+| 参数  | 类型  | 说明  |
+|:----|:----|:----|
+| pid | int | 进程号 |   
+
+```javascript
+await __A.process.suspend(999);
+```
+
+## resume(pid) <Badge type="tip" text="Since 25.3.5.1" /> {#resume}
+
+恢复（继续运行）指定的进程
+
+| 参数  | 类型  | 说明  |
+|:----|:----|:----|
+| pid | int | 进程号 |   
+
+```javascript
+await __A.process.resume(999);
+```
+
+## kill(pid) <Badge type="tip" text="Since 25.3.5.1" /> {#kill}
+
+停止指定的进程
+
+| 参数  | 类型  | 说明  |
+|:----|:----|:----|
+| pid | int | 进程号 |   
+
+```javascript
+await __A.process.kill(999);
+```
+
+## terminate(pid) <Badge type="tip" text="Since 25.3.5.1" /> {#terminate}
+
+终止指定的进程
+
+| 参数  | 类型  | 说明  |
+|:----|:----|:----|
+| pid | int | 进程号 |   
+
+```javascript
+await __A.process.terminate(999);
+```

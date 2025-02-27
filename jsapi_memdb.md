@@ -2,7 +2,7 @@
 layout: doc
 ---
 
-# 内存数据库 pyChariot.memdb
+# pyChariot.memdb
 
 开箱即用的简单内存数据库，处理简单的数据处理和应用逻辑。
 
@@ -11,7 +11,7 @@ layout: doc
 
 更复杂更高级的数据库处理请使用 pyChariot.sqlite3 。
 
-## pyChariot.memdb.execute(sql, if_fetch) <Badge type="tip" text="Since 25.3.5.1" /> {#execute}
+## execute(sql, if_fetch) <Badge type="tip" text="Since 25.3.5.1" /> {#execute}
 
 执行 SQL 语句
 
@@ -25,7 +25,7 @@ layout: doc
 | object | 如果 if_fetch 为 true，返回游标的数据对象。                         |
 | null   | 如果 if_fetch 为 false，返回 null，<br/>需通过后继的 fetch 操作获取数据。 |
 
-## pyChariot.memdb.fetchone() <Badge type="tip" text="Since 25.3.5.1" /> {#fetchone}
+## fetchone() <Badge type="tip" text="Since 25.3.5.1" /> {#fetchone}
 
 获取游标数据（一条）
 
@@ -33,7 +33,7 @@ layout: doc
 |:-------|:-----|
 | object | 游标数据 |
 
-## pyChariot.memdb.fetchall() <Badge type="tip" text="Since 25.3.5.1" /> {#fetchall}
+## fetchall() <Badge type="tip" text="Since 25.3.5.1" /> {#fetchall}
 
 获取游标所有数据
 
@@ -41,7 +41,7 @@ layout: doc
 |:-------|:-----|
 | object | 游标数据 |
 
-## pyChariot.memdb.fetchmany(count) <Badge type="tip" text="Since 25.3.5.1" /> {#fetchmany}
+## fetchmany(count) <Badge type="tip" text="Since 25.3.5.1" /> {#fetchmany}
 
 获取游标数据（指定记录条数）
 
@@ -53,7 +53,7 @@ layout: doc
 |:-------|:-----|
 | object | 游标数据 |
 
-## pyChariot.memdb.getrowcount() <Badge type="tip" text="Since 25.3.5.1" /> {#getrowcount}
+## getrowcount() <Badge type="tip" text="Since 25.3.5.1" /> {#getrowcount}
 
 获取受影响的记录数
 
@@ -61,7 +61,7 @@ layout: doc
 |:-------|:-----------|
 | number | 受影响的数据库记录数 |
 
-## pyChariot.memdb.getlastrowid() <Badge type="tip" text="Since 25.3.5.1" /> {#getlastrowid}
+## getlastrowid() <Badge type="tip" text="Since 25.3.5.1" /> {#getlastrowid}
 
 获取受上次操作影响的数据库记录 rowid
 
@@ -69,7 +69,7 @@ layout: doc
 |:-------|:------------|
 | number | 数据库记录 rowid |
 
-## pyChariot.memdb.renew() <Badge type="tip" text="Since 25.3.5.1" /> {#renew}
+## renew() <Badge type="tip" text="Since 25.3.5.1" /> {#renew}
 
 关闭当前内存数据库，重新获得一个新的。
 

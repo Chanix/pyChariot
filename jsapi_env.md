@@ -2,10 +2,10 @@
 layout: doc
 ---
 
-# 环境变量 pyChariot.env
-操作系统环境变量的管理与操作
+# pyChariot.env
+环境变量，操作系统环境变量的管理与操作
 
-## pyChariot.env.set(name, value) <Badge type="tip" text="Since 25.3.5.1" /> {#set}
+## set(name, value) <Badge type="tip" text="Since 25.3.5.1" /> {#set}
 
 设置指定环境变量的值
 
@@ -21,7 +21,7 @@ await __A.env.set('nnn', null);     // 删除名称环境变量 nnn
 await __A.env.set('nnn');           // 删除名称环境变量 nnn
 ```
 
-## pyChariot.env.unset(name) <Badge type="tip" text="Since 25.3.5.1" /> {#unset}
+## unset(name) <Badge type="tip" text="Since 25.3.5.1" /> {#unset}
 
 删除指定环境变量，实际上是 pop 的简化版。
 
@@ -33,7 +33,7 @@ await __A.env.set('nnn');           // 删除名称环境变量 nnn
 await __A.env.unset('nnn');           // 获取环境变量 nnn，默认返回 null
 ```
 
-## pyChariot.env.get(name, default) <Badge type="tip" text="Since 25.3.5.1" /> {#get}
+## get(name, default) <Badge type="tip" text="Since 25.3.5.1" /> {#get}
 
 获取指定环境变量的值。
 
@@ -53,7 +53,7 @@ await __A.env.get('nnn', 12345);    // 获取环境变量 nnn，默认返回 "12
 await __A.env.get('nnn', "vvv");    // 获取环境变量 nnn，默认返回 "vvv"
 ```
 
-## pyChariot.env.pop(name, default) <Badge type="tip" text="Since 25.3.5.1" /> {#pop}
+## pop(name, default) <Badge type="tip" text="Since 25.3.5.1" /> {#pop}
 
 删除指定环境变量，并返回其值。
 
@@ -73,7 +73,7 @@ await __A.env.pop('nnn', 12345);    // 获取环境变量 nnn，默认返回 "12
 await __A.env.pop('nnn', "vvv");    // 获取环境变量 nnn，默认返回 "vvv"
 ```
 
-## pyChariot.env.list() <Badge type="tip" text="Since 25.3.5.1" /> {#list}
+## list() <Badge type="tip" text="Since 25.3.5.1" /> {#list}
 
 获取当前所有的环境变量列表
 
@@ -85,7 +85,7 @@ await __A.env.pop('nnn', "vvv");    // 获取环境变量 nnn，默认返回 "vv
 env = await __A.env.list();
 ```
 
-## pyChariot.env.getsep() <Badge type="tip" text="Since 25.3.5.1" /> {#getsep}
+## getsep() <Badge type="tip" text="Since 25.3.5.1" /> {#getsep}
 
 获取指定环境变量中使用的分隔符
 
