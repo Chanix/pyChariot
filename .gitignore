@@ -2,3 +2,4 @@
 /.vitepress/cache/
 /yarn.lock
 /package.json
+./idea
