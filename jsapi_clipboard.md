@@ -4,8 +4,8 @@ layout: doc
 
 # pyChariot.clipboard
 剪贴板，操作系统剪贴板的管理与操作
-- Window，不需要额外模块；
-- MacOS，通过 pbcopy 和 pbpaste 实现（操作系统预装）；
+- Window，系统内置；
+- MacOS，系统内置（通过调用 pbcopy 和 pbpaste 实现）；
 - Linux，通过尝试调用下列命令来实现，您可能需要额外安装软件包；
     - which
     - pbcopy

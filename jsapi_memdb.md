@@ -25,7 +25,7 @@ layout: doc
 | object | 如果 if_fetch 为 true，返回游标的数据对象。                         |
 | null   | 如果 if_fetch 为 false，返回 null，<br/>需通过后继的 fetch 操作获取数据。 |
 
-## fetchone() <Badge type="tip" text="Since 25.3.5.1" /> {#fetchone}
+## fetchOne() <Badge type="tip" text="Since 25.3.5.1" /> {#fetchOne}
 
 获取游标数据（一条）
 
@@ -33,7 +33,7 @@ layout: doc
 |:-------|:-----|
 | object | 游标数据 |
 
-## fetchall() <Badge type="tip" text="Since 25.3.5.1" /> {#fetchall}
+## fetchAll() <Badge type="tip" text="Since 25.3.5.1" /> {#fetchAll}
 
 获取游标所有数据
 
@@ -41,7 +41,7 @@ layout: doc
 |:-------|:-----|
 | object | 游标数据 |
 
-## fetchmany(count) <Badge type="tip" text="Since 25.3.5.1" /> {#fetchmany}
+## fetchMany(count) <Badge type="tip" text="Since 25.3.5.1" /> {#fetchMany}
 
 获取游标数据（指定记录条数）
 
@@ -53,7 +53,7 @@ layout: doc
 |:-------|:-----|
 | object | 游标数据 |
 
-## getrowcount() <Badge type="tip" text="Since 25.3.5.1" /> {#getrowcount}
+## getRowCount() <Badge type="tip" text="Since 25.3.5.1" /> {#getRowCount}
 
 获取受影响的记录数
 
@@ -61,7 +61,7 @@ layout: doc
 |:-------|:-----------|
 | number | 受影响的数据库记录数 |
 
-## getlastrowid() <Badge type="tip" text="Since 25.3.5.1" /> {#getlastrowid}
+## getLastRowId() <Badge type="tip" text="Since 25.3.5.1" /> {#getLastRowId}
 
 获取受上次操作影响的数据库记录 rowid
 
@@ -90,22 +90,22 @@ await __A.memdb.execute("INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES
 await __A.memdb.execute("INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00)");
 await __A.memdb.execute("INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (5, 'David', 27, 'Texas', 85000.00)");
 await __A.memdb.execute("INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (6, 'Kim', 22, 'South-Hall', 45000.00)");
-await __A.memdb.getlastrowid();
+await __A.memdb.getLastRowId();
 
 await __A.memdb.execute("SELECT * FROM COMPANY");
-await __A.memdb.getrowcount();
+await __A.memdb.getRowCount();
 
-await __A.memdb.fetchone();
-await __A.memdb.fetchmany(2);
-await __A.memdb.fetchall();
+await __A.memdb.fetchOne();
+await __A.memdb.fetchMany(2);
+await __A.memdb.fetchAll();
 
 await __A.memdb.execute("UPDATE COMPANY SET NAME='Peter' WHERE ID=1");
-await __A.memdb.getrowcount();
-await __A.memdb.getlastrowid();
+await __A.memdb.getRowCount();
+await __A.memdb.getLastRowId();
 
 await __A.memdb.execute("DELETE FROM COMPANY WHERE ID>4");
-await __A.memdb.getrowcount();
-await __A.memdb.getlastrowid();
+await __A.memdb.getRowCount();
+await __A.memdb.getLastRowId();
 
 await __A.memdb.execute("DROP TABLE COMPANY");
 ```

@@ -23,14 +23,14 @@ await __A.env.set('nnn');           // 删除名称环境变量 nnn
 
 ## unset(name) <Badge type="tip" text="Since 25.3.5.1" /> {#unset}
 
-删除指定环境变量，实际上是 pop 的简化版。
+删除指定环境变量
 
 |   参数   | 说明     | 默认值              |
 |:-------:|:-------|:-----------------|
 |  name   | string | 环境变量名称           |
 
 ```javascript
-await __A.env.unset('nnn');           // 获取环境变量 nnn，默认返回 null
+await __A.env.unset('nnn');           // 删除环境变量 nnn
 ```
 
 ## get(name, default) <Badge type="tip" text="Since 25.3.5.1" /> {#get}
