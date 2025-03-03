@@ -15,12 +15,12 @@ layout: doc
 - 扩展对象增加 process 模块，提供系统进程操作；
 - 扩展对象的 core 模块新增 getArgv；
 - 应用退出运行后，删除其临时目录中的所有文件（不保证一定被删除）；
-- 通过环境变量 `PYCHARIOT_ADDITIONAL_BROWSER_ARGUMENTS` 向 Edge 传递更多参数； 
+- 允许通过环境变量 `PYCHARIOT_ADDITIONAL_BROWSER_ARGUMENTS` 向 Edge 传递更多参数； 
 
 🐞修补与更正
 - pyChariot 不再打开终端窗口；
 
-[GitHub 下载](https://github.com/Chanix/pyChariot/releases/tag/v25.3.5.83)
+[//]: # ([GitHub 下载]&#40;https://github.com/Chanix/pyChariot/releases/tag/v25.3.5.83&#41;)
 
 ## 25.3.1.83
 *2025/03/01*
