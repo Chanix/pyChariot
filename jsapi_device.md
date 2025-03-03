@@ -160,9 +160,9 @@ await __A.device.getCPUCount(false);
 |:-------|:--------|:-----------------------|
 | percpu | boolean | 详细列出每个内核，可忽略，默认为 false |   
 
-| 返回值    | 说明       |
-|:-------|:---------|
-| object | CPU 时间信息 |
+| 返回值                   | 说明       |
+|:----------------------|:---------|
+| object 或 list[object] | CPU 时间信息 |
 
 列出CPU时间信息，其中每个属性代表 CPU 在给定模式下花费的秒数。属性可用性因平台而异。
 
@@ -370,143 +370,298 @@ await __A.device.getSwapMemory();
 
 ## getDiskPartitions(all) <Badge type="tip" text="Since 25.3.5.1" /> {#getDiskPartitions}
 
-将所有挂载的磁盘分区作为命名元组列表返回，包括设备、挂载点和文件系统类型，类似于 UNIX 上的“df”命令。如果 all 参数都为 False
-，它会尝试仅区分和返回物理设备（例如硬盘、CD-ROM 驱动器、USB 密钥）并忽略所有其他设备（例如伪(pseudo)、内存、重复、无法访问的文件系统）。请注意，
-all 参数并非在所有系统上都完全可靠（例如，在 BSD 上，此参数被忽略）。请参阅提供示例用法的 disk_usage.py 脚本。
-返回具有以下字段的命名元组列表：
+获取设备挂在的磁盘分区信息
 
-device: 设备路径（例如“/dev/hda1”）。 在 Windows 上，这是驱动器号（例如“C:\\”）。
-mountpoint: 挂载点路径（例如“/”）。 在 Windows 上，这是驱动器号（例如“C:\\”）。
-fstype: 分区文件系统（例如 UNIX 上的“ext3”或 Windows 上的“NTFS”）。
-opts: 一个逗号分隔的字符串，指示驱动器/分区的不同挂载选项。 平台相关。
-maxfile: 文件名可以具有的最大长度。
-maxpath: 路径名（目录名 + 基本文件名）的最大长度。
+| 参数  | 类型      | 说明                       |
+|:----|:--------|:-------------------------|
+| all | boolean | 是否列出所有磁盘信息，可忽略，默认为 false |   
 
-> > > import psutil
-> > > psutil.disk_partitions()
-[sdiskpart(device='/dev/sda3', mountpoint='/', fstype='ext4', opts='rw,errors=remount-ro', maxfile=255, maxpath=4096),
-sdiskpart(device='/dev/sda7', mountpoint='/home', fstype='ext4', opts='rw', maxfile=255, maxpath=4096)]
-> > > 5.7.4 版本中修改: 新增 maxfile 和 maxpath 字段
+| 返回值          | 说明                |
+|:-------------|:------------------|
+| list[object] | 列表，每个元素为一个磁盘分区的信息 |
+
+获取设备挂在的磁盘分区信息，包括设备、挂载点和文件系统类型，类似于 UNIX 上的“df”命令。
+如果 all 参数为 False，它会尝试仅区分和返回物理设备（例如硬盘、CD-ROM 驱动器、USB 密钥）并忽略所有其他设备（例如伪(pseudo)
+、内存、重复、无法访问的文件系统）。
+
+请注意，all 参数并非在所有系统上都完全可靠（例如，在 BSD 上，此参数被忽略）。
+
+列表中的每个元素说明一个磁盘分区的详细信息，包括以下属性：
+
+- device: 设备路径（例如“/dev/hda1”）。在 Windows 上，这是驱动器号（例如“C:\\”）。
+- mountpoint: 挂载点路径（例如“/”）。在 Windows 上，这是驱动器号（例如“C:\\”）。
+- fstype: 分区文件系统（例如 UNIX 上的“ext3”或 Windows 上的“NTFS”）。
+- opts: 一个逗号分隔的字符串，指示驱动器/分区的不同挂载选项。平台相关。
+- maxfile: 文件名可以具有的最大长度。平台相关。
+- maxpath: 路径名（目录名 + 基本文件名）的最大长度。平台相关。
 
 ```javascript
 await __A.device.getDiskPartitions();
 ```
 
+```javascript
+await __A.device.getDiskPartitions(true);
+```
+
 ## getDiskUsage(path) <Badge type="tip" text="Since 25.3.5.1" /> {#getDiskUsage}
 
-返回有关包含给定路径的分区的磁盘使用统计信息作为命名元组，包括以字节表示的总空间(total)、已用空间(used)和可用空间(free)
-，以及使用百分比(percentage usage)。如果路径(path)不存在，则引发 OSError。 从 Python 3.3 开始，这也可以作为 shutil.disk_usage
-使用（参见 BPO-12442）。 请参阅提供示例用法的 [disk_usage.py][disk_usage.py] 脚本。
+获取指定路径的磁盘使用统计信息
 
+| 参数   | 类型     | 说明                        |
+|:-----|:-------|:--------------------------|
+| path | string | 路径，可忽略，默认为 PYCHARIOT_HOME |   
 
-> > > import psutil
-> > > psutil.disk_usage('/')
-> > > sdiskusage(total=21378641920, used=4809781248, free=15482871808, percent=22.5)
-> > > 注意: UNIX 通常为 root 用户保留 5% 的总磁盘空间。UNIX 上的 total 和 used 字段是指总空间和已用空间，而 free
-> > > 表示用户可用的空间，percent 表示用户利用率（参见源代码）。这就是为什么百分比(percent)值可能看起来比您预期的大 5%。 另请注意，这
-> > > 4 个值都与“df” 命令行程序一致的。
+| 返回值    | 说明     |
+|:-------|:-------|
+| object | 使用统计信息 |
 
-4.3.0 版本中修改: 百分比(percent)值考虑了root保留空间。
+使用统计信息包括以下属性：
+
+- total: 以字节表示的总空间；
+- used: 以字节表示的已用空间
+- free: 以字节表示的可用空间；
+- percent: 使用百分比；
+
+*这些值和 “df” 命令行程序是一致的。*
 
 ```javascript
 await __A.device.getDiskUsage();
 ```
 
-## getDiskIOCounters(perdisk=False, nowrap=True) <Badge type="tip" text="Since 25.3.5.1" /> {#getDiskIOCounters}
+```javascript
+await __A.device.getDiskUsage('C:\\');
+```
 
-将系统范围的磁盘 I/O 统计信息作为命名元组返回，包括以下字段：
+## getDiskIOCounters(perdisk, nowrap) <Badge type="tip" text="Since 25.3.5.1" /> {#getDiskIOCounters}
 
-read_count: 读取次数
-write_count: 写入次数
-read_bytes: 读取的字节数
-write_bytes: 写入的字节数
-特定于平台的字段:
+获取磁盘 IO 统计信息
 
-read_time(除了 NetBSD 和 OpenBSD): 从磁盘读取所花费的时间（以毫秒为单位）
-write_time(除了 NetBSD 和 OpenBSD): 写入磁盘所花费的时间（以毫秒为单位）
-busy_time(Linux, FreeBSD): 花费在实际 I/O 上的时间（以毫秒为单位）
-read_merged_count (Linux): 合并读取的数量（参见 iostats 文档）
-write_merged_count (Linux): 合并写入的数量（请参阅 iostats 文档）
-如果 perdisk 为 True ，则将系统上安装的每个物理磁盘的相同信息作为字典返回，分区名称作为键，上面描述的命名元组作为值。有关示例应用程序，参见
-iotoop.py。在某些系统（例如 Linux）上，在非常繁忙或寿命很长的系统上，内核返回的数字可能会溢出并换行（从零开始）。如果 nowrap 为
-True，psutil
-将在函数调用中检测并调整这些数字，并将“旧值”添加到“新值”，以便返回的数字始终增加或保持不变，但永远不会减少。disk_io_counters.cache_clear()
-可用于使 nowrap 缓存无效。 在 Windows 上，可能需要首先从 cmd.exe 发出 diskperf -y 命令以启用 IO 计数器。 在无盘机器上，如果
-perdisk 为 True，此函数将返回 None 或 {}。
+| 参数      | 类型      | 说明        |
+|:--------|:--------|:----------|
+| perdisk | boolean | 默认为 false |   
+| nowrap  | boolean | 默认为 false |   
 
+| 返回值    | 说明         |
+|:-------|:-----------|
+| object | 磁盘 IO 统计信息 |
 
-> > > import psutil
-> > > psutil.disk_io_counters()
-> > > sdiskio(read_count=8141, write_count=2431, read_bytes=290203, write_bytes=537676, read_time=5868, write_time=94922)
->>>
->>> psutil.disk_io_counters(perdisk=True)
-> > > {'sda1': sdiskio(read_count=920, write_count=1, read_bytes=2933248, write_bytes=512, read_time=6016, write_time=4),
-'sda2': sdiskio(read_count=18707, write_count=8830, read_bytes=6060, write_bytes=3443, read_time=24585,
-> > > write_time=1572),
-'sdb1': sdiskio(read_count=161, write_count=0, read_bytes=786432, write_bytes=0, read_time=44, write_time=0)}
-> > > 注意: 在 Windows 上，可能需要先执行“diskperf -y”命令，否则该函数将找不到任何磁盘。
+返回系统范围的磁盘 I/O 统计信息，包括以下属性：
 
-5.3.0 版本中修改: 由于新的 nowrap 参数，数字不再在调用之间换行（从零开始）。
+- read_count: 读取次数
+- write_count: 写入次数
+- read_bytes: 读取的字节数
+- write_bytes: 写入的字节数
 
-4.0.0 版本中修改: 添加了 busy_time(Linux, FreeBSD),read_merged_count和write_merged_count (Linux) 字段。
+特定于平台的属性:
 
-4.0.0 版本中修改: NetBSD 不再有 read_time和write_time 字段。
+- read_time(除了 NetBSD 和 OpenBSD): 从磁盘读取所花费的时间（以毫秒为单位）
+- write_time(除了 NetBSD 和 OpenBSD): 写入磁盘所花费的时间（以毫秒为单位）
+- busy_time(Linux, FreeBSD): 花费在实际 I/O 上的时间（以毫秒为单位）
+- read_merged_count (Linux): 合并读取的数量（参见 iostats 文档）
+- write_merged_count (Linux): 合并写入的数量（请参阅 iostats 文档）
+
+如果 perdisk 为 True ，则返回系统上安装的每个物理磁盘的相同信息，分区名称作为键。
+
+在某些系统（例如Linux）上，在非常繁忙或寿命很长的系统上，内核返回的数字可能会溢出并换行（从零开始）。
+
+如果 nowrap 为 True，函数调用中检测并调整这些数字，并将“旧值”添加到“新值”，以便返回的数字始终增加或保持不变，但永远不会减少。
+disk_io_counters.cache_clear() 可用于使 nowrap 缓存无效。 在 Windows 上，可能需要首先从 cmd.exe 发出 diskperf -y 命令以启用
+IO 计数器。
+在无盘机器上，如果 perdisk 为 True，此函数将返回 null 或 {}。
 
 ```javascript
 await __A.device.getDiskIOCounters();
 ```
 
-## getNetIOCounters(perdisk=False, nowrap=True) <Badge type="tip" text="Since 25.3.5.1" /> {#getNetIOCounters}
+## getNetIOCounters(pernic, nowrap) <Badge type="tip" text="Since 25.3.5.1" /> {#getNetIOCounters}
 
-将系统范围的网络 I/O 统计信息作为命名元组返回，包括以下属性：
+获取网络 IO 统计信息
 
-bytes_sent: 发送的字节数
-bytes_recv: 接收的字节数
-packets_sent: 发送的数据包数
-packets_recv: 收到的数据包数
-errin: 接收时的错误总数
-errout: 发送时的错误总数
-dropin: 丢弃的传入数据包总数
-dropout: 丢弃的传出数据包总数（在 macOS 和 BSD 上始终为 0）
-如果 pernic 为 True，则将系统上安装的每个网络接口的相同信息作为字典返回，其中网络接口名称作为键，上面描述的命名元组作为值。在某些系统（例如
-Linux）上，在非常繁忙或寿命很长的系统上，内核返回的数字可能会溢出并换行（从零开始）。如果 nowrap 为 True ，psutil
-将在函数调用中检测并调整这些数字，并将“旧值”添加到“新值”，以便返回的数字始终增加或保持不变，但永远不会减少。net_io_counters.cache_clear()
-可用于使 nowrap 缓存无效。 在没有网络接口的机器上，如果 pernic 为 True ，此函数将返回 None 或 {}。
+| 参数     | 类型      | 说明        |
+|:-------|:--------|:----------|
+| pernic | boolean | 默认为 false |   
+| nowrap | boolean | 默认为 false |   
 
+| 返回值    | 说明         |
+|:-------|:-----------|
+| object | 网络 IO 统计信息 |
 
-> > > import psutil
-> > > psutil.net_io_counters()
-> > > snetio(bytes_sent=14508483, bytes_recv=62749361, packets_sent=84311, packets_recv=94888, errin=0, errout=0, dropin=0,
-> > > dropout=0)
->>>
->>> psutil.net_io_counters(pernic=True)
-> > > {'lo': snetio(bytes_sent=547971, bytes_recv=547971, packets_sent=5075, packets_recv=5075, errin=0, errout=0, dropin=0,
-> > > dropout=0),
-'wlan0': snetio(bytes_sent=13921765, bytes_recv=62162574, packets_sent=79097, packets_recv=89648, errin=0, errout=0,
-> > > dropin=0, dropout=0)}
-> > > 示例应用程序另请参阅 nettop.py 和 ifconfig.py 。
+返回系统范围的网络 I/O 统计信息，包括以下属性：
 
-5.3.0 版本中修改: 由于新的 nowrap 参数，数字不再在调用之间换行（从零开始）。
+- bytes_sent: 发送的字节数
+- bytes_recv: 接收的字节数
+- packets_sent: 发送的数据包数
+- packets_recv: 收到的数据包数
+- errin: 接收时的错误总数
+- errout: 发送时的错误总数
+- dropin: 丢弃的传入数据包总数
+- dropout: 丢弃的传出数据包总数（在 macOS 和 BSD 上始终为 0）
+
+如果 pernic 为 True，则返回系统上安装的每个网络接口的相同信息，其中网络接口名称作为键。
+
+在某些系统（例如 Linux）上，在非常繁忙或寿命很长的系统上，内核返回的数字可能会溢出并换行（从 0 开始）。
+
+如果 nowrap 为 True ，将在函数调用中检测并调整这些数字，并将“旧值”添加到“新值”，以便返回的数字始终增加或保持不变，但永远不会减少。
+net_io_counters.cache_clear() 可用于使 nowrap 缓存无效。 在没有网络接口的机器上，如果 pernic 为 True ，此函数将返回 null
+或 {}。
 
 ```javascript
 await __A.device.getDiskIOCounters();
+```
+
+## getNetConnections(kind) <Badge type="tip" text="Since 25.3.5.1" /> {#getNetConnections}
+
+获取系统网络连接信息
+
+| 参数   | 类型     | 说明                    |
+|:-----|:-------|:----------------------|
+| kind | string | 网卡设备类型，默认为 inet （以太网） |   
+
+| 返回值          | 说明     |
+|:-------------|:-------|
+| list[object] | 网络连接信息 |
+
+返回系统网络连接信息列表，每个元素具体说明一个连接的信息，包含的属性视操作系统有差异。
+Windows 下包括以下属性：
+
+- family: 地址族；
+- laddr: 本地地址；
+- raddr: 远程地址；
+- status: 连接的状态
+- pid: 相关 pid
+
+```javascript
+await __A.device.getNetConnections();
+```
+
+## getNetIFAddrs() <Badge type="tip" text="Since 25.3.5.1" /> {#getNetIFAddrs}
+
+获取系统网络接口信息
+
+| 返回值          | 说明     |
+|:-------------|:-------|
+| list[object] | 网络接口列表 |
+
+返回系统网络接口信息列表，元素为网络接口信息，包括以下属性：
+
+- family: 地址族；
+- address: 主 NIC 地址（始终设置）；
+- netmask: 网络掩码地址（可能是 null ）；
+- broadcast: 广播地址（可能是 null ）；
+- ptp: 代表“点对点”(point to point)； 它是点对点接口（通常是 VPN）上的目标地址。 广播和 ptp 是互斥的。 可能为 null；
+
+```javascript
+await __A.device.getNetIFAddrs();
+```
+
+## getNetIFStats() <Badge type="tip" text="Since 25.3.5.1" /> {#getNetIFStats}
+
+获取系统网络接口状态信息
+
+| 返回值          | 说明     |
+|:-------------|:-------|
+| list[object] | 网络接口列表 |
+
+网络接口当前状态信息列表，元素包括以下属性：
+
+- isup: 是否已启用；
+- duplex: 双工通信类型；
+- speed: 以兆位 (MB) 表示的 NIC 速度，如果无法确定（例如“本地主机”），则为 0；
+- mtu: NIC 的最大传输单位，以字节为单位；
+
+```javascript
+await __A.device.getNetIFStats();
+```
+
+# getSensorsTemperatures(fahrenheit) <Badge type="tip" text="Since 25.3.5.1" /> {#getSensorsTemperatures}
+
+获取温度传感器数据
+
+| 参数         | 类型      | 说明                |
+|:-----------|:--------|:------------------|
+| fahrenheit | boolean | 是否使用华氏度，默认为 false |   
+
+| 返回值          | 说明 |
+|:-------------|:---|
+| list[object] |    |
+
+返回温度传感器数据列表，如果硬件或操作系统不支持，则返回空列表。当前仅支持 Linux, FreeBSD。
+元素包含以下属性：
+
+- label: 传感器名称
+- current: 当前温度
+- high: 最高温度
+- critical: 警告温度
+
+```javascript
+await __A.device.getSensorsTemperatures();
+```
+
+# getSensorsFans() <Badge type="tip" text="Since 25.3.5.1" /> {#getSensorsFans}
+
+获取风扇转速数据
+
+| 返回值          | 说明 |
+|:-------------|:---|
+| list[object] |    |
+
+返回风扇转速数据列表，如果硬件或操作系统不支持，则返回空列表（当前支持 Linux, FreeBSD）。
+元素包含以下属性：
+
+- label: 风扇名称
+- current: 当前转速（RPM，即 每分钟转数）；
+
+```javascript
+await __A.device.getSensorsFans();
+```
+
+# getSensorsBattery() <Badge type="tip" text="Since 25.3.5.1" /> {#getSensorsBattery}
+
+获取电池信息
+
+| 返回值    | 说明 |
+|:-------|:---|
+| object |    |
+
+返回获取电池信息数据，如果硬件或操作系统不支持，则返回空数据，（当前支持 Linux, FreeBSD，Windows， MacOS）包含以下属性：
+
+- percent: 电池电量剩余百分比；
+- secsleft: 电池电量耗尽前还剩多少秒的粗略近似值；
+- power_plugged: 是否连接了交流电源线，无法确定则为 null；
+
+```javascript
+await __A.device.getSensorsBattery();
+```
+
+# getBootTime() <Badge type="tip" text="Since 25.3.5.1" /> {#getBootTime}
+
+获取系统已启动时间
+
+| 返回值    | 说明 |
+|:-------|:---|
+| number |    |
+
+返回自纪元(epoch)以来以秒表示的系统启动时间，在 Windows 上，如果它在不同的进程中使用，这个函数可能会返回一个减少(off by) 1
+秒的时间。
+
+```javascript
+await __A.device.getBootTime();
 ```
 
 ## getUsers() <Badge type="tip" text="Since 25.3.5.1" /> {#getUsers}
 
-获当前连接在系统上的用户信息
+获取已连接到系统的用户信息
 
 | 返回值          | 说明     |
 |:-------------|:-------|
 | list[object] | 用户信息列表 |
 
-用户信息以下字段：
-
+返回当前已连接到系统的用户信息，包括以下字段：
 - name: 用户名.
 - terminal: 与用户关联的 tty 或 伪tty ，如果有，否则为 None 。
 - host: 与条目关联的主机名（如果有）。
 - started: 创建时间作为一个浮点数，以自纪元（epoch）以来的秒数表示。
-- pid: 登录进程的 PID（如 sshd、tmux、gdm-session-worker 等）。 在 Windows 和 OpenBSD 上，PID 始终为 None 。
+- pid: 登录进程的 pid（如 sshd、tmux、gdm-session-worker 等）。 在 Windows 和 OpenBSD 上，pid 始终为 null 。
 
 ```javascript
 await __A.device.getUsers();

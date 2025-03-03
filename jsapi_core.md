@@ -13,7 +13,7 @@ layout: doc
 __A.core.noop();
 ```
 
-单纯的返回 null，除了调用和通讯再无其他消耗。因此可以作为通讯调试和性能测试的工具。
+单纯的返回 null，除了调用和通讯再无其他消耗。可作为通讯调试和性能测试的工具。
 
 ```javascript
 var tsStart = new Date().getTime();
