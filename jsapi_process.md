@@ -6,7 +6,7 @@ layout: doc
 
 进程管理，操作系统的进程管理与操作
 
-## execute(bin_path, parameters) <Badge type="tip" text="Since 25.3.5.1" /> {#run}
+## execute(bin_path, parameters) <Badge type="tip" text="Since 25.3.5.1" /> {#execute}
 
 运行指定的可执行文件
 
@@ -27,7 +27,7 @@ await __A.process.execute('notepad');
 await __A.process.execute('notepad', '/aaa.txt');
 ```
 
-## executeWait(bin_path, parameters) <Badge type="tip" text="Since 25.3.5.1" /> {#runwait}
+## executeWait(bin_path, parameters) <Badge type="tip" text="Since 25.3.5.1" /> {#executeWait}
 
 运行指定的可执行文件，并等待其运行完毕。<br />运行完毕后，返回运行结果信息。
 

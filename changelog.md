@@ -19,6 +19,7 @@ layout: doc
 
 🐞修补与更正
 - pyChariot 不再打开终端窗口；
+- 从版本起，只提供单可执行文件的下载；
 
 [//]: # ([GitHub 下载]&#40;https://github.com/Chanix/pyChariot/releases/tag/v25.3.5.83&#41;)
 

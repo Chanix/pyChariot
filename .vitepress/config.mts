@@ -80,6 +80,7 @@ export default defineConfig({
               {
                 text: 'API',
                 items: [
+                  {text: '小应用　　　appchip', link: '/jsapi_appchip'},
                   {text: '剪贴板　　　clipboard', link: '/jsapi_clipboard'},
                   {text: '基础功能　　core', link: '/jsapi_core'},
                   {text: '设备信息　　device', link: '/jsapi_device'},
