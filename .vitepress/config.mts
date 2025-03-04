@@ -49,6 +49,14 @@ export default defineConfig({
         label: '本页导航'
       },
 
+      lastUpdated: {
+        text: '最后更新于',
+        formatOptions: {
+          dateStyle: 'short',
+          timeStyle: 'medium'
+        }
+      },
+
       sidebar: [
         {
           text: 'pyChariot 简介',
@@ -84,6 +92,7 @@ export default defineConfig({
                   {text: '剪贴板　　　clipboard', link: '/jsapi_clipboard'},
                   {text: '基础功能　　core', link: '/jsapi_core'},
                   {text: '设备信息　　device', link: '/jsapi_device'},
+                  {text: '对话框　　　dialog', link: '/jsapi_dialog'},
                   {text: '环境变量　　env', link: '/jsapi_env'},
 //                   {text: '文件系统　　fsys', link: '/jsapi_fsys'},
                   {text: '内存数据库　memdb', link: '/jsapi_memdb'},
@@ -95,8 +104,8 @@ export default defineConfig({
         },
       ],
 
-//       socialLinks: [
-//         {icon: 'github', link: 'https://github.com/Chanix/pyChariot'}
-//       ]
+      socialLinks: [
+        {icon: 'github', link: 'https://Chanix.github.io'}
+      ]
     }
 })
