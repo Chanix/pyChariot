@@ -5,21 +5,25 @@ layout: doc
 # 更新日志
 
 ## 25.3.5.XX
-*2025/03/05*
+*预计 2025/03/05*
 
 🚀 功能与优化
 - 扩展对象增加 clipboard 模块，提供剪贴板操作；
 - 扩展对象增加 device 模块，提供设备信息；
+- 扩展对象增加 dialog 模块，提供对话框操作；
 - 扩展对象增加 env 模块，提供环境变量操作；
 - 扩展对象增加 memdb 模块，提供开箱即用的简单内存数据库；
 - 扩展对象增加 process 模块，提供系统进程操作；
 - 扩展对象的 core 模块新增 getArgv；
 - 应用退出运行后，删除其临时目录中的所有文件（不保证一定被删除）；
-- 允许通过环境变量 `PYCHARIOT_ADDITIONAL_BROWSER_ARGUMENTS` 向 Edge 传递更多参数； 
+- 允许通过环境变量 `PYCHARIOT_ADDITIONAL_BROWSER_ARGUMENTS` 向 Edge 传递更多参数；
+- 新增主窗口自定义注入脚本，当主窗口装载完成后执行自定义代码；
+- 增加系统级热键功能，当按下热键时，在主窗口执行自定义代码；
+- 优化运行方式的判断逻辑；
 
 🐞修补与更正
 - pyChariot 不再打开终端窗口；
-- 从版本起，只提供单可执行文件的下载；
+- 从本版起，只提供单可执行文件的下载；
 
 [//]: # ([GitHub 下载]&#40;https://github.com/Chanix/pyChariot/releases/tag/v25.3.5.83&#41;)
 

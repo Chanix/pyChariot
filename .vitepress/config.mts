@@ -73,6 +73,7 @@ export default defineConfig({
           collapsed: false,
           items: [
             {text: '文件目录结构', link: '/dirs-and-files'},
+            {text: '热键 / 快捷键', link: '/hotkey'},
 //             {text: '项目与项目描述文件', link: '/project_json'},
 //             {text: '项目运行模式', link: '/project_types'},
 //             {text: '装载和运行项目', link: '/project_load'},
@@ -105,7 +106,7 @@ export default defineConfig({
       ],
 
       socialLinks: [
-        {icon: 'github', link: 'https://Chanix.github.io'}
+        {icon: 'github', link: 'https://Chanix.github.io/'}
       ]
     }
 })
