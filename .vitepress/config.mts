@@ -31,6 +31,7 @@ export default defineConfig({
       // https://vitepress.dev/reference/default-theme-config
       nav: [
         {text: '回首页', link: '/'},
+        {text: '立即下载', link: 'https://github.com/Chanix/pyChariot/releases'},
         {text: '讨论组', link: 'https://github.com/Chanix/pyChariot/discussions'},
         // { text: 'Examples', link: '/markdown-examples' },
       ],
@@ -65,6 +66,7 @@ export default defineConfig({
             {text: 'pyChariot 是什么', link: '/what-is-pychariot'},
             {text: '快速开始', link: '/getting-started'},
               // {text: '应用类型', link: '/project-types'},
+            {text: '立即下载', link: 'https://github.com/Chanix/pyChariot/releases'},
             {text: '更新日志', link: '/changelog'},
           ],
         },

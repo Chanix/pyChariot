@@ -4,10 +4,22 @@ layout: doc
 
 # 更新日志
 
-## 25.3.5.XX
-*预计 2025/03/05*
+## 25.4.1.xxx
+
+*预计 2025/04/01*
 
 🚀 功能与优化
+
+🐞修补与更正
+
+[//]: # ([GitHub 下载]&#40;https://github.com/Chanix/pyChariot/releases/tag/v25.3.5.100&#41;)
+
+## 25.3.5.100
+
+*2025/03/05*
+
+🚀 功能与优化
+
 - 扩展对象增加 clipboard 模块，提供剪贴板操作；
 - 扩展对象增加 device 模块，提供设备信息；
 - 扩展对象增加 dialog 模块，提供对话框操作；
@@ -22,12 +34,14 @@ layout: doc
 - 优化运行方式的判断逻辑；
 
 🐞修补与更正
+
 - pyChariot 不再打开终端窗口；
 - 从本版起，只提供单可执行文件的下载；
 
 [GitHub 下载](https://github.com/Chanix/pyChariot/releases/tag/v25.3.5.100)
 
 ## 25.3.1.83
+
 *2025/03/01*
 
 pyChariot 的第一个初始版本。
@@ -40,4 +54,4 @@ pyChariot 的第一个初始版本。
 [GitHub 下载](https://github.com/Chanix/pyChariot/releases/tag/v25.3.1.83)
 
 
-⚡🚀🐞
+[//]: # (⚡🚀🐞)
