@@ -25,7 +25,7 @@ layout: doc
 - pyChariot 不再打开终端窗口；
 - 从本版起，只提供单可执行文件的下载；
 
-[//]: # ([GitHub 下载]&#40;https://github.com/Chanix/pyChariot/releases/tag/v25.3.5.83&#41;)
+[GitHub 下载](https://github.com/Chanix/pyChariot/releases/tag/v25.3.5.100)
 
 ## 25.3.1.83
 *2025/03/01*
