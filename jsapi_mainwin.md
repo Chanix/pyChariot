@@ -202,3 +202,15 @@ await __A.mainwin.minimize();
 ```javascript
 await __A.mainwin.loadUrl('https://chanix.github.io/pyChariot/');
 ```
+
+## loadCss(css) <Badge type="tip" text="Since 25.4.1.1" /> {#loadCss}
+
+在主窗口中加载自定义 CSS
+
+| 参数  | 类型     | 说明 |
+|:---:|:-------|:---|
+| css | string |    | 
+
+```javascript
+await __A.mainwin.loadCss('body { background: red !important; }');
+```
