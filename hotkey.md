@@ -48,4 +48,14 @@ function customFunction() {
 ```
 也可以使用 HotKeys js-hotkey 等 js 库。
 
-
+提醒：不要忘记扩展对象都是异步的，因此如果需要 await 返回，那么要使用异步方式，例如：
+```javascript
+(async () => {
+  x = await __A.mainwin.getX();
+    if (x < 0) {
+        __A.mainwin.restore();
+    } else {
+        __A.mainwin.minimize();
+    }
+})();
+```
