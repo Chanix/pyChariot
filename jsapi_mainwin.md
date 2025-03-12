@@ -203,6 +203,18 @@ await __A.mainwin.minimize();
 await __A.mainwin.loadUrl('https://chanix.github.io/pyChariot/');
 ```
 
+## loadHtml(htmlcode) <Badge type="tip" text="Since 25.4.1.1" /> {#loadHtml}
+
+在主窗口中加载指定的 url
+
+|    参数    | 类型     | 说明 |
+|:--------:|:-------|:---|
+| htmlcode | string |    | 
+
+```javascript
+await __A.mainwin.loadHtml('<h1>This is dynamically loaded HTML</h1>');
+```
+
 ## loadCss(css) <Badge type="tip" text="Since 25.4.1.1" /> {#loadCss}
 
 在主窗口中加载自定义 CSS

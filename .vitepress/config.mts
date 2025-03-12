@@ -1,34 +1,33 @@
-import { defineConfig } from 'vitepress'
+import { withMermaid } from "vitepress-plugin-mermaid";
 
-// https://vitepress.dev/reference/site-config
-export default defineConfig({
+export default withMermaid({
     ignoreDeadLinks: 'localhostLinks',
-  outDir: './docs',
-  base: '/pyChariot/',
-  title: "pyChariot",
-  description: "pyChariot, 基于 HTML5 的桌面应用开发工具。",
-    locales: {
-      root: {
-        label: '简体中文',
-        lang: 'zh'
-      },
-      // en: {
-      //   label: 'English',
-      //   lang: 'en', // 可选，将作为 `lang` 属性添加到 `html` 标签中
-      //   // link: '/fr/guide' // 默认 /fr/ -- 显示在导航栏翻译菜单上，可以是外部的
-      //   // 其余 locale 特定属性...
-      // },
-    },
-    themeConfig: {
-      langMenuLabel: '多语言',
-      returnToTopLabel: '回到顶部',
-      sidebarMenuLabel: '菜单',
-      darkModeSwitchLabel: '主题',
-      lightModeSwitchTitle: '切换到浅色模式',
-      darkModeSwitchTitle: '切换到深色模式',
-      skipToContentLabel: '跳转到内容',
+    outDir: './docs',
+    base: '/pyChariot/',
+    title: "pyChariot",
+    description: "pyChariot, 基于 HTML5 的桌面应用开发工具。",
+        locales: {
+            root: {
+                label: '简体中文',
+                lang: 'zh'
+            },
+            // en: {
+            //   label: 'English',
+            //   lang: 'en', // 可选，将作为 `lang` 属性添加到 `html` 标签中
+            //   // link: '/fr/guide' // 默认 /fr/ -- 显示在导航栏翻译菜单上，可以是外部的
+            //   // 其余 locale 特定属性...
+            // },
+        },
 
-      // https://vitepress.dev/reference/default-theme-config
+        themeConfig: {
+            langMenuLabel: '多语言',
+            returnToTopLabel: '回到顶部',
+            sidebarMenuLabel: '菜单',
+            darkModeSwitchLabel: '主题',
+            lightModeSwitchTitle: '切换到浅色模式',
+            darkModeSwitchTitle: '切换到深色模式',
+            skipToContentLabel: '跳转到内容',
+
       nav: [
         {text: '回首页', link: '/'},
         {text: '立即下载', link: 'https://github.com/Chanix/pyChariot/releases'},
@@ -65,7 +64,6 @@ export default defineConfig({
           items: [
             {text: 'pyChariot 是什么', link: '/what-is-pychariot'},
             {text: '快速开始', link: '/getting-started'},
-              // {text: '应用类型', link: '/project-types'},
             {text: '更新日志', link: '/changelog'},
           ],
         },
@@ -73,8 +71,19 @@ export default defineConfig({
           text: '开发者指南',
           collapsed: false,
           items: [
-            {text: '文件目录结构', link: '/dirs-and-files'},
+            {text: '命令行参数', link: '/args'},
+            {text: '文件与目录结构', link: '/dirs-and-files'},
+            {
+                items: [
+                    {text: 'appchips', link: '/dir-appchips'},
+                    {text: 'data', link: '/dir-data'},
+                    {text: 'temp', link: '/dir-temp'},
+                    {text: 'wvdata', link: '/dir-wvdata'},
+                ]
+            },
             {text: '代码调试', link: '/debugging'},
+
+
 //             {text: '热键 / 快捷键', link: '/hotkey'},
 //             {text: '项目与项目描述文件', link: '/project_json'},
 //             {text: '项目运行模式', link: '/project_types'},
@@ -84,12 +93,18 @@ export default defineConfig({
           ],
         },
         {
+          text: '开发示例',
+          collapsed: false,
+          items: [
+            {text: 'DeepSeek', link: '/examples-deepseek'},
+          ],
+        },
+        {
           text: 'JS 扩展与 API',
             collapsed: false,
             items: [
               {text: '扩展对象概述', link: '/jsapi'},
               {
-                text: 'API',
                 items: [
                   {text: '小应用　　　appchip', link: '/jsapi_appchip'},
                   {text: '剪贴板　　　clipboard', link: '/jsapi_clipboard'},
@@ -111,5 +126,14 @@ export default defineConfig({
       socialLinks: [
         {icon: 'github', link: 'https://Chanix.github.io/'}
       ]
-    }
-})
+    },
+
+    mermaid: {
+      // refer https://mermaid.js.org/config/setup/modules/mermaidAPI.html#mermaidapi-configuration-defaults for options
+    },
+
+    // optionally set additional config for plugin itself with MermaidPluginConfig
+    mermaidPlugin: {
+      class: "mermaid my-class", // set additional css classes for parent container
+    },
+});

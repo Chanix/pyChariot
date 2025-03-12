@@ -9,13 +9,14 @@ layout: doc
 *预计 2025/04/01*
 
 🚀 功能与优化
+
 - 扩展对象增加 mainwin 模块，提供主窗口操作；
 
 [//]: # (- 新增主窗口事件的自定义脚本支持；)
 
 🐞修补与更正
 
-[//]: # ([GitHub 下载]&#40;https://github.com/Chanix/pyChariot/releases/tag/v25.3.5.100&#41;)
+- 调整目录结构，增加一层 `pyChariot.files`，对可能带来的困扰深表歉意；
 
 ## 25.3.5.100
 
