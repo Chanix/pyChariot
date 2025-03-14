@@ -2,7 +2,7 @@
 layout: doc
 ---
 
-# pyChariot.clipboard
+# pyChariot.api.clipboard
 剪贴板，操作系统剪贴板的管理与操作
 - Window，系统内置；
 - MacOS，系统内置（通过调用 pbcopy 和 pbpaste 实现）；

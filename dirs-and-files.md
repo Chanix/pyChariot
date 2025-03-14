@@ -22,7 +22,7 @@ pyChariot 被设计为方便迁移的绿色软件，所有文件皆保存于 `py
         |   pyChariot.exe               # 文件：可执行文件，运行环境
         |   pyChariotKit.exe            # 文件：可执行文件，开发调试环境
         |
-        +---pyChariot.files             # C:\pyChariot\pyChariot.files
+        \---pyChariot.files             # C:\pyChariot\pyChariot.files
                 |
                 +---temp                # 目录：临时文件目录
                 |

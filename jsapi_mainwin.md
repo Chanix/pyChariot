@@ -2,7 +2,7 @@
 layout: doc
 ---
 
-# pyChariot.mainwin
+# pyChariot.api.mainwin
 
 小应用主窗口管理，主窗口状态管理与操作
 

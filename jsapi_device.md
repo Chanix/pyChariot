@@ -2,7 +2,7 @@
 layout: doc
 ---
 
-# pyChariot.device
+# pyChariot.api.device
 
 设备信息，当前运行设备的相关信息
 

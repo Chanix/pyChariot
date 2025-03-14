@@ -2,7 +2,7 @@
 layout: doc
 ---
 
-# pyChariot.memdb
+# pyChariot.api.memdb
 
 开箱即用的简单内存数据库，处理简单的数据处理和应用逻辑。
 

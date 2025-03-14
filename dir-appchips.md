@@ -5,9 +5,7 @@ layout: doc
 # PYCHARIOT_HOME/pyChariot.files/appchips
 
 运行于 pyChariot 上的 WebApp，称为小应用 `appchip`。
-*嗯……本来想叫 “appclip”的，打错了……不过无论是 “薯片”还是 “芯片”，我都喜欢，就叫 `appchip` 吧 :)*
-
-所有小应用的程序包文件存放在 appchips 下，以小应用标识作为目录名称，结构如下：
+其所有程序包文件存放在目录 appchips 下，以小应用标识作为目录名称，结构如下：
 
 ```text
     appchip_id                          # 小应用程序包目录，目录名即小应用标识
@@ -15,17 +13,20 @@ layout: doc
         |   appchip.ico                 # 小应用的窗口图标（可选），Windows。
         |
         +---js                          # 小应用使用的 JavaScript 脚本文件目录
-        |   |    inject.js              # 小应用的自定义主窗口注入脚本。
-        |   |
-        |   \--- hotkeys                # 系统级热键脚本目录：
-        |           f1.js               #    热键 f1 对应的脚本；
-        |           ctrl+f1.js          #    热键 ctrl+f1 对应的脚本；
-        |           mainwin_on_xxx.js   #    主窗口事件自定义脚本；
-        |           ... ...
+        |   inject.js                   # 小应用的自定义主窗口注入脚本。
+        |   mainwin_on_{xxx}.js         # 主窗口事件自定义脚本
         |
         \---webroot                     # 小应用 httpd 使用的文件
                                         #   本地 httpd 服务器将以本目录作为 / 。
 ```
+
+[//]: # (        |   \--- hotkeys                # 系统级热键脚本目录：)
+
+[//]: # (        |           f1.js               #    热键 f1 对应的脚本；)
+
+[//]: # (        |           ctrl+f1.js          #    热键 ctrl+f1 对应的脚本；)
+
+[//]: # (        |           ... ...)
 
 ## ./appchip.json {#appchip.json}
 
@@ -34,7 +35,7 @@ layout: doc
 | 项目                | 说明                            |
 |:------------------|:------------------------------|
 | name              | 名称，默认为小应用的标识（即目录名）            |
-| version           | 版本号，建议使用 `9.9.9.9` 的格式        |
+| version           | 版本号，建议使用 `d+.d+.d+.d+` 的格式    |
 | description       | 描述                            |
 | url               | 浏览器网址，若存在 html 则忽略            |
 | html              | 浏览器 html 代码                   |
@@ -50,7 +51,7 @@ layout: doc
 | win_fullscreen    | 窗口是否全屏显示                      |
 | text_select       | 是否可以选取窗口内的文本                  |
 
-pyChariot 启动后，会根据指定的小应用标识读取该文件（默认小应用为 default），然后对该小应用进行装载、启动、运行。
+*pyChariot 的默认小应用为 `default`。*
 
 ## ./js{#js}
 
@@ -62,14 +63,20 @@ pyChariot 启动后，会根据指定的小应用标识读取该文件（默认�
 除非您熟悉 pyChariot，否则不建议使用该脚本。
 在使用之前，请先了解注入脚本顺序
 
-## ./js/mainwin_on_xxxxxx.js{#js.mainwin_on.js}
+## ./js/mainwin_on_\{xxx\}.js{#js.mainwin_on.js}
 
-js/mainwin_on_xxxxx.js 主窗口的事件注入自定义脚本，即，当发生事件事，执行对应的脚本；
-| 脚本 | 说明 |
-|:------------------|:---------------------------------|
-| mainwin_on_loaded.js | 主窗口装载完成后，执行该自定义脚本。 |
-| mainwin_on_shown.js | |
+主窗口事件自定义脚本，事件触发时执行脚本。
 
-## ./js/hotkeys{#js.hotkeys}
+| 脚本名称                 | 触发事件          |
+|:---------------------|:--------------|
+| mainwin_on_loaded.js | 主窗口页面装载完成后触发。 |
 
-hotkeys 目录下存放系统级热键定义，以热键的按键为文件名，当热键被按下时，在主窗口内执行其中的脚本代码；
+[//]: # (| mainwin_on_shown.js | |)
+
+[//]: # (## ./js/hotkeys{#js.hotkeys})
+
+[//]: # ()
+
+[//]: # (hotkeys 目录下存放系统级热键定义，以热键的按键为文件名，当热键被按下时，在主窗口内执行其中的脚本代码；)
+
+[//]: # (*嗯……本来想叫 “appclip”的，打错了……不过无论是 “薯片”还是 “芯片”，我都喜欢，就叫 `appchip` 吧 :&#41;*)

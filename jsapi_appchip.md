@@ -2,7 +2,7 @@
 layout: doc
 ---
 
-# pyChariot.appchip
+# pyChariot.api.appchip
 
 小应用管理，运行于 pyChariot 之上小应用的管理与操作
 

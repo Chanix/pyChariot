@@ -30,6 +30,7 @@ export default withMermaid({
 
       nav: [
         {text: '回首页', link: '/'},
+        {text: '更新日志', link: '/changelog'},
         {text: '立即下载', link: 'https://github.com/Chanix/pyChariot/releases'},
         {text: '讨论组', link: 'https://github.com/Chanix/pyChariot/discussions'},
         // { text: 'Examples', link: '/markdown-examples' },
@@ -64,7 +65,6 @@ export default withMermaid({
           items: [
             {text: 'pyChariot 是什么', link: '/what-is-pychariot'},
             {text: '快速开始', link: '/getting-started'},
-            {text: '更新日志', link: '/changelog'},
           ],
         },
         {
@@ -112,11 +112,11 @@ export default withMermaid({
                   {text: '设备信息　　device', link: '/jsapi_device'},
                   {text: '对话框　　　dialog', link: '/jsapi_dialog'},
                   {text: '环境变量　　env', link: '/jsapi_env'},
-//                   {text: '文件系统　　fsys', link: '/jsapi_fsys'},
+                  {text: '全局热键　　hotkey', link: '/jsapi_hotkey'},
                   {text: '主窗口　　　mainwin', link: '/jsapi_mainwin'},
                   {text: '内存数据库　memdb', link: '/jsapi_memdb'},
                   {text: '进程管理　　process', link: '/jsapi_process'},
-//                   {text: '应用项目　　project', link: '/jsapi_project'},
+//                  {text: 'python&nbsp;&nbsp;　　python', link: '/jsapi_python'},
                 ]
               },
             ],

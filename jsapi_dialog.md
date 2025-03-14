@@ -2,7 +2,7 @@
 layout: doc
 ---
 
-# pyChariot.dialog
+# pyChariot.api.dialog
 
 对话框管理与操作
 
