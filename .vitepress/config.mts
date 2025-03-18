@@ -5,7 +5,7 @@ export default withMermaid({
     outDir: './docs',
     base: '/pyChariot/',
     title: "pyChariot",
-    description: "pyChariot, 基于 HTML5 的桌面应用开发工具。",
+    description: "pyChariot, 跨平台桌面应用开发工具。",
         locales: {
             root: {
                 label: '简体中文',
@@ -65,6 +65,14 @@ export default withMermaid({
           items: [
             {text: 'pyChariot 是什么', link: '/what-is-pychariot'},
             {text: '快速开始', link: '/getting-started'},
+//            {text: '代码调试', link: '/debugging'},
+          ],
+        },
+        {
+          text: '开发示例',
+          collapsed: false,
+          items: [
+            {text: 'DeepSeek', link: '/examples-deepseek'},
           ],
         },
         {
@@ -81,7 +89,6 @@ export default withMermaid({
                     {text: 'wvdata', link: '/dir-wvdata'},
                 ]
             },
-            {text: '代码调试', link: '/debugging'},
 
 
 //             {text: '热键 / 快捷键', link: '/hotkey'},
@@ -90,13 +97,6 @@ export default withMermaid({
 //             {text: '装载和运行项目', link: '/project_load'},
             // {text: '常见问题与解答', link: '/faq'},
             // { text: '高级定制与扩展', link: '/404' },
-          ],
-        },
-        {
-          text: '开发示例',
-          collapsed: false,
-          items: [
-            {text: 'DeepSeek', link: '/examples-deepseek'},
           ],
         },
         {

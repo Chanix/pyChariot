@@ -5,26 +5,42 @@ layout: doc
 # 快速开始 {#getting-started}
 
 pyChariot 是个跨平台的绿色软件，无需安装即可使用。
-下面以 Windows 为例做简要的说明。
-其他平台类似，以后有时间的话会补上其他操作系统上的使用说明。
+
+## 下载与安装
 
 pyChariot 支持两种打包形式：***单文件方式*** 和 ***多文件方式***。
 
 - 多文件方式是最常见的发布形式，所有的文件，包括可执行文件、支持库、资源文件等都在一个目录下。由于文件数量比较多，会显得有点杂乱。
-- 单文件方式将运行需要的所有文件压缩打包进了单个的可执行文件，运行时会自动解压到系统临时文件夹，并运行对应的可执行文件。 虽然多了一个解压的步骤，但在当前 CPU 和 SSD 的加持下，几乎无感。
+- 单文件方式将运行需要的所有文件压缩打包进了单个的可执行文件，运行时会自动解压到系统临时文件夹，并运行对应的可执行文件。
+  虽然多了一个解压的步骤，但在当前 CPU 和 SSD 的加持下，几乎无感。
 
-单文件方式相对更为简洁，方便，因此仅提供单文件下载，其他需要请联系作者。
+单文件方式相对更为简洁，本手册将以单文件方式为主来介绍，多文件方式是类似的做法。
 
-# Windows
-
-## 下载与安装
-
-- [点这里下载对应版本](http://localhost:5173/pyChariot/changelog.html)，下载前请先确认 ***操作系统*** 和 ***系统架构***
+- [点这里下载对应版本](http://localhost:5173/pyChariot/changelog.html)，下载前请先确认 ***操作系统*** 和 ***硬件架构***
   ，确保下载了适用的版本。
-  *对于使用 Intel 或 AMD 处理器芯片的的 Windows 来说，请下载 win-amd64 版。*
+  - 下载包中带有 onefile 字样的为单文件方式；
+  - 对于使用 Intel 或 AMD 处理器芯片的的 Windows 来说，请下载 win-amd64 版；
+  - ARM 架构通过转译可使用 amd64 架构的版本（需操作系统支持）；
 
-- 下载完成后将文件解压到您希望存放的地方（例如 `D:\pyChariot`）即可。
+- 下载完成后将文件解压到您希望存放的地方（例如 `C:\pyChariot`）即可。
   *存放的文件夹名称请使用 ANSI 字符（英文字母+数字），以免带来不必要的问题。*
+
+::: code-group
+
+```powershell [Windows]
+md C:\pyChariot
+cd C:\pyChariot
+move C:\download\pyChariot<version>.exe pyChariot.exe
+move C:\download\pyChariotKit<version>.exe pyChariotKit.exe
+```
+
+```sh [Linux]
+mkdir ~/pyChariot
+cd ~/pyChariot
+tar -xvfz pyChariot.tgz .
+```
+
+:::
 
 ## 开发与调试
 
@@ -43,6 +59,24 @@ pyChariot.exe 和 pyChariotKit.exe 提供同样的功能，差别在于 pyChario
 
 应用的开发支持主流的前端开发框架，例如：React、Vue、Angular、JQuery ...
 应用和 WebApp 的开发调试并无太大差异。具体请参阅对应开发框架的相关文档。
+
+开发和调试中请使用 pyChariotKit。
+
+pyChariotKit 包含了一些基础的调试功能，其运行时：
+- 打开终端窗口显示运行日志、错误信息等底层代码信息，关闭终端窗口即可关闭整个程序；
+- 在独立窗口中打开浏览器组件的开发者工具（DevTools），可通过 F12 等快捷键进行切换；
+- 在主窗口点击右键，会打开上下文关联菜单；
+
+pyChariot 的小应用运行于系统浏览器控件之上，支持前端开发框架，可按 WebApp 同样的方式来进行调试。
+其中最常用的就是开发者工具（DevTools），也可以使用您惯用的其他工具。
+若需进一步自动化调试流程，建议结合浏览器开发工具的自定义配置或专用测试工具（如 Puppeteer、Selenium）。
+
+调试完成后，可以用 pyChariot 进行最后的测试，pyChariot 不会打开终端和开发者工具窗口，同时屏蔽右键上下文关联菜单。
+
+更多使用开发者工具（DevTools）进行调试的方法和技巧，请参阅 [DevTools](https://developer.chrome.com/docs/devtools?hl=zh-cn)。
+
+在使用 edgechromium 时可以启用远程调试，编写 Playwright 测试，更多请参阅 [Playwright](https://playwright.dev/)。
+
 
 ## 分发给最终用户
 
