@@ -72,7 +72,7 @@ export default withMermaid({
           text: '开发示例',
           collapsed: false,
           items: [
-            {text: 'DeepSeek', link: '/examples-deepseek'},
+            {text: '示例：DeepSeek', link: '/examples-deepseek'},
           ],
         },
         {

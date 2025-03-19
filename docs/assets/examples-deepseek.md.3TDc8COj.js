@@ -229,4 +229,4 @@ import{_ as i,c as a,o as n,a0 as h}from"./chunks/framework.6RT3NpRm.js";const y
 <span class="line"><span>            |   appchip.json</span></span>
 <span class="line"><span>            |</span></span>
 <span class="line"><span>            \\---js</span></span>
-<span class="line"><span>                mainwin_on_loaded.js</span></span></code></pre></div><p>大功告成。运行测试一下。通过自定义脚本和JS扩展，可以达到更丰富的效果和功能，具体的取决于您的想象力。</p>`,31)]))}const g=i(l,[["render",p]]);export{y as __pageData,g as default};
+<span class="line"><span>                mainwin_on_loaded.js</span></span></code></pre></div><p>大功告成。运行测试一下。通过自定义脚本和JS扩展，可以达到更丰富的效果和功能，更多的取决于您的想象力。</p>`,31)]))}const g=i(l,[["render",p]]);export{y as __pageData,g as default};
