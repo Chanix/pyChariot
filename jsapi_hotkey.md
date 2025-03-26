@@ -8,6 +8,13 @@ layout: doc
 
 全局热键是指在操作系统中，无论当前焦点在哪个应用程序或窗口，按下特定组合键时都能触发相应操作的功能。
 
+已知限制：
+- 在Linux下媒体键可能没有名字(只有扫描码)或者根本就没有。
+- 阻止继续派发事件功能只在 Windows 上可用。
+- 为了避免依赖X，Linux 下需要读取原始设备文件 `/dev/input/input*`，需要 root 才能使用。
+- 其他的应用程序（如游戏），可能屏蔽热键，导致无法触发事件。
+
+
 ## set(key_name, key_js, suppress, timeout, trigger_on_release) <Badge type="tip" text="Since 25.4.1.1" /> {#set}
 
 设置热键

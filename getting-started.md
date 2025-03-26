@@ -50,6 +50,46 @@ tar -xvfz pyChariot.tgz .
 
 :::
 
+## 环境依赖
+
+pyChariot 已经考虑到了环境依赖，理论上无需配置环境即可独立运行。
+
+<br>如果运行出现问题，您可以在这里对照自己的环境，查看是否满足运行环境依赖。
+<br>同时也请您通知我们，这让我们有可能做得更好。
+
+### Windows
+
+Windows 10 以上操作系统系统内置，Windows 7 需要检查以下组件：
+
+- .NET 环境 4.0 以上
+- WebView2 运行时
+
+详情请参阅： [分发应用和 WebView2 运行时](https://learn.microsoft.com/zh-cn/microsoft-edge/webview2/concepts/distribution?tabs=dotnetcsharp)。
+
+### Linux
+
+Linux 操作系统需内置了 WebKit2 2.22 或以上版本的 GTK，您可能需要新安装对应的软件包：
+<br>*Linux各发行版使用多种系统包管理工具，具体请参阅相关文档。*
+::: code-group
+
+```shell [apt:Ubuntu/Deepin/Debian...]
+sudo apt install python3-gi python3-gi-cairo gir1.2-gtk-3.0 gir1.2-webkit2-4.1
+```
+
+```shell [pacman:Arch...]
+sudo pacman -S python-gobject gtk4
+```
+
+```shell [dnf:Fedora...]
+sudo dnf install python3-gobject gtk4
+```
+
+```shell [zypper:openSUSE...]
+sudo zypper install python3-gobject python3-gobject-Gdk typelib-1_0-Gtk-4_0 libgtk-4-1
+```
+
+:::
+
 ## 开发与调试
 
 pyChariot 共有两个可执行文件，以 Windows 为例：

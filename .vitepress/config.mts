@@ -112,7 +112,7 @@ export default withMermaid({
                   {text: '设备信息　　device', link: '/jsapi_device'},
                   {text: '对话框　　　dialog', link: '/jsapi_dialog'},
                   {text: '环境变量　　env', link: '/jsapi_env'},
-                  {text: '全局热键　　hotkey', link: '/jsapi_hotkey'},
+//                  {text: '全局热键　　hotkey', link: '/jsapi_hotkey'},
                   {text: '主窗口　　　mainwin', link: '/jsapi_mainwin'},
                   {text: '内存数据库　memdb', link: '/jsapi_memdb'},
                   {text: '进程管理　　process', link: '/jsapi_process'},
