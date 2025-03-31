@@ -2,8 +2,10 @@
 layout: doc
 ---
 
-# pyChariot.api.clipboard
+# pyChariot.api.clipboard <Badge type="tip" text="Since 25.3.5.1" />
+
 剪贴板，操作系统剪贴板的管理与操作
+
 - Window，系统内置；
 - MacOS，系统内置（通过调用 pbcopy 和 pbpaste 实现）；
 - Linux，通过尝试调用下列命令来实现，您可能需要额外安装软件包；
@@ -15,12 +17,11 @@ layout: doc
     - wl-copy/wl-paste
     - klipper
     - qdbus
-  
 
 ## isAvailable() <Badge type="tip" text="Since 25.3.5.1" /> {#isAvailable}
 
 系统剪贴板是否可用
-| 返回值  | 说明         |
+| 返回值 | 说明 |
 |:----:|:-----------|
 | bool | 系统剪贴板是否可用 |
 

@@ -2,7 +2,7 @@
 layout: doc
 ---
 
-# pyChariot.api.dialog
+# pyChariot.api.dialog <Badge type="tip" text="Since 25.3.5.1" />
 
 对话框管理与操作
 

@@ -2,7 +2,7 @@
 layout: doc
 ---
 
-# pyChariot.api.hotkey
+# pyChariot.api.hotkey <Badge type="tip" text="Since 25.4.1.1" />
 
 全局热键，提供全局热键功能。
 

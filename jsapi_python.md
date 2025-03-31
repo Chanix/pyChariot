@@ -2,20 +2,26 @@
 layout: doc
 ---
 
-# pyChariot.api.python
+# pyChariot.api.python <Badge type="tip" text="Since 25.4.2.1" />
 
-python 支持，深入内部，允许执行 python 代码。
+python 支持，允许执行 python 代码。
 
-注意：本模块将允许执行python源代码，请在熟悉 pyChariot 和 python 后再使用。
+::: danger 注意
+除非熟悉 pyChariot 和 python，否则请不要使用本模块。使用本模块风险自担。
+:::
 
-## exec(pysrc) <Badge type="tip" text="Since 25.4.1.1" /> {#exec}
+## exec(pycode) <Badge type="tip" text="Since 25.4.2.1" /> {#exec}
 
-执行python源代码，不保证可用和正确性。
+调用 python exec() 执行指定的 python 源代码。
 
-| 参数    | 类型     | 说明                |
-|:------|:-------|:------------------|
-| pysrc | string | python 源代码，默认为 '' |   
+|   参数   | 类型     | 说明         |
+|:------:|:-------|:-----------|
+| pycode | string | python 源代码 | 
 
-```javascript
-await __A.python.exec('print("this is python code run by JavaScript")');
-```
+## execFile(filepath) <Badge type="tip" text="Since 25.4.2.1" /> {#execFile}
+
+调用 python exec() 执行指定源代码文件。
+
+|    参数    | 类型     | 说明             |
+|:--------:|:-------|:---------------|
+| filepath | string | python 源代码文件路径 | 

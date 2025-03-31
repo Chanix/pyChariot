@@ -2,7 +2,7 @@
 layout: doc
 ---
 
-# pyChariot.api.device
+# pyChariot.api.device <Badge type="tip" text="Since 25.3.5.1" />
 
 设备信息，当前运行设备的相关信息
 

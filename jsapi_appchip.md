@@ -2,7 +2,7 @@
 layout: doc
 ---
 
-# pyChariot.api.appchip
+# pyChariot.api.appchip <Badge type="tip" text="Since 25.3.5.1" />
 
 小应用管理，运行于 pyChariot 之上小应用的管理与操作
 

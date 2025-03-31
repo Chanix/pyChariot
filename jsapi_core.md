@@ -2,7 +2,7 @@
 layout: doc
 ---
 
-# pyChariot.api.core
+# pyChariot.api.core <Badge type="tip" text="Since 25.3.5.1" />
 基础功能，对 pyChariot 最基本的管理与操作
 
 ## noop() <Badge type="tip" text="Since 25.3.1.1" /> {#null}
