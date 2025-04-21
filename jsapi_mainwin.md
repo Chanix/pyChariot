@@ -195,9 +195,9 @@ await __A.mainwin.minimize();
 
 在主窗口中加载指定的 url
 
-|   参数   | 类型     | 说明 |
-|:------:|:-------|:---|
-|  url   | string |    | 
+| 参数  | 类型     | 说明 |
+|:---:|:-------|:---|
+| url | string |    | 
 
 ```javascript
 await __A.mainwin.loadUrl('https://chanix.github.io/pyChariot/');
@@ -225,4 +225,30 @@ await __A.mainwin.loadHtml('<h1>This is dynamically loaded HTML</h1>');
 
 ```javascript
 await __A.mainwin.loadCss('body { background: red !important; }');
+```
+
+## getInfo() <Badge type="tip" text="Since 25.4.2.1" /> {#getInfo}
+
+获得主窗口常用信息
+
+| 返回值    | 说明 |
+|:-------|:---|
+| object |    |
+
+主窗口常用信息，包括以下字段：
+
+- x: 坐标 x；
+- y: 坐标 y；
+- width: 宽度；
+- height: 高度；
+- title: 窗口标题；
+- ontop: 是否总是显示在最前面；
+- state: 窗口状态：
+  - 0 最小化
+  - 1 正常
+  - 2 最大化
+  - 其他：未知状态
+
+```javascript
+await __A.mainwin.getInfo();
 ```

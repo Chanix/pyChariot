@@ -261,7 +261,7 @@ await __A.device.getCPUTimesPercent();
 await __A.device.getCPUTimesPercent(true);
 ```
 
-## getCPUFfreq(percpu) <Badge type="tip" text="Since 25.3.5.1" /> {#getCPUFfreq}
+## getCPUFreq(percpu) <Badge type="tip" text="Since 25.3.5.1" /> {#getCPUFreq}
 
 获取 CPU 频率
 
@@ -657,6 +657,7 @@ await __A.device.getBootTime();
 | list[object] | 用户信息列表 |
 
 返回当前已连接到系统的用户信息，包括以下字段：
+
 - name: 用户名.
 - terminal: 与用户关联的 tty 或 伪tty ，如果有，否则为 None 。
 - host: 与条目关联的主机名（如果有）。

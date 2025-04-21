@@ -65,6 +65,7 @@ export default withMermaid({
           items: [
             {text: 'pyChariot 是什么', link: '/what-is-pychariot'},
             {text: '快速开始', link: '/getting-started'},
+            {text: '进阶使用', link: '/advanced'},
 //            {text: '代码调试', link: '/debugging'},
           ],
         },
@@ -107,6 +108,7 @@ export default withMermaid({
               {
                 items: [
                   {text: '小应用　　　appchip', link: '/jsapi_appchip'},
+                  {text: '开机自启　　autostart', link: '/jsapi_autostart'},
                   {text: '剪贴板　　　clipboard', link: '/jsapi_clipboard'},
                   {text: '基础功能　　core', link: '/jsapi_core'},
                   {text: '设备信息　　device', link: '/jsapi_device'},
@@ -117,6 +119,7 @@ export default withMermaid({
                   {text: '主窗口　　　mainwin', link: '/jsapi_mainwin'},
                   {text: '内存数据库　memdb', link: '/jsapi_memdb'},
                   {text: '进程管理　　process', link: '/jsapi_process'},
+                  {text: '属性数据　　properties', link: '/jsapi_properties'},
                   {text: 'python&nbsp;&nbsp;　　python', link: '/jsapi_python'},
                 ]
               },

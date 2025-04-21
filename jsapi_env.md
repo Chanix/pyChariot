@@ -3,13 +3,14 @@ layout: doc
 ---
 
 # pyChariot.api.env <Badge type="tip" text="Since 25.3.5.1" />
+
 环境变量，操作系统环境变量的管理与操作
 
 ## set(name, value) <Badge type="tip" text="Since 25.3.5.1" /> {#set}
 
 设置指定环境变量的值
 
-|  参数  | 类型     | 说明                          |
+|  参数   | 类型     | 说明                          |
 |:-----:|:-------|:----------------------------|
 | name  | string | 环境变量名称                      |
 | value | string | 环境变量值，可忽略，默认为 null（即删除环境变量） |
@@ -25,9 +26,9 @@ await __A.env.set('nnn');           // 删除名称环境变量 nnn
 
 删除指定环境变量
 
-|   参数   | 说明     | 默认值              |
-|:-------:|:-------|:-----------------|
-|  name   | string | 环境变量名称           |
+|  参数  | 说明     | 默认值    |
+|:----:|:-------|:-------|
+| name | string | 环境变量名称 |
 
 ```javascript
 await __A.env.unset('nnn');           // 删除环境变量 nnn
@@ -37,7 +38,7 @@ await __A.env.unset('nnn');           // 删除环境变量 nnn
 
 获取指定环境变量的值。
 
-|   参数   | 类型     | 说明               |
+|   参数    | 类型     | 说明               |
 |:-------:|:-------|:-----------------|
 |  name   | string | 环境变量名称           |
 | default | string | 默认值，可忽略，默认为 null |
@@ -57,7 +58,7 @@ await __A.env.get('nnn', "vvv");    // 获取环境变量 nnn，默认返回 "vv
 
 删除指定环境变量，并返回其值。
 
-|   参数   | 说明     | 默认值              |
+|   参数    | 说明     | 默认值              |
 |:-------:|:-------|:-----------------|
 |  name   | string | 环境变量名称           |
 | default | string | 默认值，可忽略，默认为 null |
@@ -74,6 +75,9 @@ await __A.env.pop('nnn', "vvv");    // 获取环境变量 nnn，默认返回 "vv
 ```
 
 ## list() <Badge type="tip" text="Since 25.3.5.1" /> {#list}
+
+::: warning 已废弃，将在后继版本中删除。
+:::
 
 获取当前所有的环境变量列表
 
@@ -96,3 +100,40 @@ env = await __A.env.list();
 ```javascript
 await __A.env.getsep();
 ```
+
+## items() <Badge type="tip" text="Since 25.4.9.1" /> {#items}
+
+获取当前所有环境变量名值对对象
+
+|  返回值   | 说明 |
+|:------:|:---|
+| object |    |
+
+```javascript
+env = await __A.env.items();
+```
+
+## keys() <Badge type="tip" text="Since 25.4.9.1" /> {#keys}
+
+获取当前所有环境变量的名称
+
+|  返回值   | 说明 |
+|:------:|:---|
+| object |    |
+
+```javascript
+env = await __A.env.keys();
+```
+
+## values() <Badge type="tip" text="Since 25.4.9.1" /> {#values}
+
+获取当前所有环境变量的值
+
+|  返回值   | 说明 |
+|:------:|:---|
+| object |    |
+
+```javascript
+env = await __A.env.values();
+```
+
