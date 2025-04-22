@@ -19,7 +19,7 @@ layout: doc
 | string | 路径名称 |
 
 ```javascript
-await __A.appchip.getDirTemp();
+await __A.appchip.getDirAppchip();
 ```
 
 ## getDirTemp(appchip_id) <Badge type="tip" text="Since 25.3.5.1" /> {#getDirTemp}

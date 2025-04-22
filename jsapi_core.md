@@ -3,24 +3,23 @@ layout: doc
 ---
 
 # pyChariot.api.core <Badge type="tip" text="Since 25.3.5.1" />
+
 基础功能，对 pyChariot 最基本的管理与操作
 
-## noop() <Badge type="tip" text="Since 25.3.1.1" /> {#null}
+## about() <Badge type="tip" text="Since 25.4.15.1" /> {#about}
 
-返回 null
+打开一个窗口，显示关于信息。
 
 ```javascript
-__A.core.noop();
+__A.core.about();
 ```
 
-单纯的返回 null，除了调用和通讯再无其他消耗。可作为通讯调试和性能测试的工具。
+## error() <Badge type="tip" text="Since 25.4.15.1" /> {#error}
+
+抛出一个意外
 
 ```javascript
-var tsStart = new Date().getTime();
-for (var i = 0; i < 100; i++) {
-    await __A.core.noop();
-}
-console.log((new Date().getTime()) - tsStart);
+__A.core.error();
 ```
 
 ## exit() <Badge type="tip" text="Since 25.3.1.1" /> {#exit}
@@ -34,6 +33,7 @@ console.log((new Date().getTime()) - tsStart);
 ```javascript
 __A.core.exit();
 ```
+
 ```javascript
 __A.core.exit(100);
 ```
@@ -55,10 +55,29 @@ __A.core.exit(100);
 ```javascript
 await __A.core.getArgv(); // 获取所有命令行参数
 ```
+
 ```javascript
 await __A.core.getArgv(0); // 获取第 0 个命令行参数
 ```
+
 ```javascript
 await __A.core.getArgv('appchip'); // 获取标志为 appchip 的命令行参数
 ```
 
+## noop() <Badge type="tip" text="Since 25.3.1.1" /> {#null}
+
+返回 null
+
+```javascript
+__A.core.noop();
+```
+
+单纯的返回 null，除了调用和通讯再无其他消耗。可作为通讯调试和性能测试的工具。
+
+```javascript
+var tsStart = new Date().getTime();
+for (var i = 0; i < 100; i++) {
+    await __A.core.noop();
+}
+console.log((new Date().getTime()) - tsStart);
+```

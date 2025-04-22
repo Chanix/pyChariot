@@ -18,6 +18,21 @@ layout: doc
 - 代码整理与重构
 - 各种事件的自定义脚本支持；
 
+🚀 新增与优化
+
+- 调整主窗口 `closed` 事件处理；
+
+🐞 修补与更正
+
+🔧 JS扩展模块
+
+- mainwin:
+    - 新增 `reload`，重新装载浏览器窗口当前网址；
+- core:
+    - 新增 `error`，直接抛出错误，开发调试用；
+    - 新增 `about`，打开窗口，显示关于信息；
+    - 优化 `getArgv`，简化代码逻辑；
+
 ## 25.4.15.174
 
 [GitHub 下载](https://github.com/Chanix/pyChariot/releases/tag/v25.4.15.174)
@@ -38,10 +53,10 @@ layout: doc
 
 - 修正 appchip.json 中 url 处理，其可能导致无服务器模式下（`file://`）小应用装载失败；
 
-🔧 扩展模块修改
+🔧 JS扩展模块
 
 - mainwin:
-    - 新增 `getInfo`，获得主窗口的简要信息；
+    - 新增 `getStatus`，获得主窗口的简要信息；
 - appchip:
     - 新增 `list2`，返回小应用的简要信息对象；
     - 修改 `list`，忽略以 `.` 开头的对象；

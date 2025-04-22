@@ -227,7 +227,7 @@ await __A.mainwin.loadHtml('<h1>This is dynamically loaded HTML</h1>');
 await __A.mainwin.loadCss('body { background: red !important; }');
 ```
 
-## getInfo() <Badge type="tip" text="Since 25.4.2.1" /> {#getInfo}
+## getStatus() <Badge type="tip" text="Since 25.4.2.1" /> {#getStatus}
 
 获得主窗口常用信息
 
@@ -244,11 +244,19 @@ await __A.mainwin.loadCss('body { background: red !important; }');
 - title: 窗口标题；
 - ontop: 是否总是显示在最前面；
 - state: 窗口状态：
-  - 0 最小化
-  - 1 正常
-  - 2 最大化
-  - 其他：未知状态
+    - 0 最小化
+    - 1 正常
+    - 2 最大化
+    - 其他：未知状态
 
 ```javascript
 await __A.mainwin.getInfo();
+```
+
+## reload() <Badge type="tip" text="Since 25.4.15.1" /> {#reload}
+
+重新装载浏览器窗口当前网址
+
+```javascript
+await __A.mainwin.reload();
 ```
