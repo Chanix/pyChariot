@@ -20,7 +20,7 @@ layout: doc
 
 ## 25.4.15.174
 
-[GitHub 下载](https://https://github.com/Chanix/pyChariot/releases/tag/v25.4.15.174)
+[GitHub 下载](https://github.com/Chanix/pyChariot/releases/tag/v25.4.15.174)
 
 🚀 新增与优化
 
