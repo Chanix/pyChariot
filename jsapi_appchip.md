@@ -10,9 +10,9 @@ layout: doc
 
 获取指定小应用的程序目录
 
-| 参数         | 类型     | 说明             |
-|:-----------|:-------|:---------------|
-| appchip_id | string | 小应用标识，默认为当前小应用 |   
+| 参数         | 类型     | 说明                 |
+|:-----------|:-------|:-------------------|
+| appchip_id | string | 小应用标识，可忽略，默认为当前小应用 |   
 
 | 返回值    | 说明   |
 |:-------|:-----|
@@ -22,29 +22,13 @@ layout: doc
 await __A.appchip.getDirAppchip();
 ```
 
-## getDirTemp(appchip_id) <Badge type="tip" text="Since 25.3.5.1" /> {#getDirTemp}
-
-获取指定小应用的临时目录
-
-| 参数         | 类型     | 说明             |
-|:-----------|:-------|:---------------|
-| appchip_id | string | 小应用标识，默认为当前小应用 |   
-
-| 返回值    | 说明   |
-|:-------|:-----|
-| string | 路径名称 |
-
-```javascript
-await __A.appchip.getDirTemp();
-```
-
 ## getDirData(appchip_id) <Badge type="tip" text="Since 25.3.5.1" /> {#getDirData}
 
 获取指定小应用的数据目录
 
-| 参数         | 类型     | 说明             |
-|:-----------|:-------|:---------------|
-| appchip_id | string | 小应用标识，默认为当前小应用 |   
+| 参数         | 类型     | 说明                 |
+|:-----------|:-------|:-------------------|
+| appchip_id | string | 小应用标识，可忽略，默认为当前小应用 |   
 
 | 返回值    | 说明   |
 |:-------|:-----|
@@ -54,13 +38,29 @@ await __A.appchip.getDirTemp();
 await __A.appchip.getDirData();
 ```
 
+## getDirTemp(appchip_id) <Badge type="tip" text="Since 25.3.5.1" /> {#getDirTemp}
+
+获取指定小应用的临时目录
+
+| 参数         | 类型     | 说明                 |
+|:-----------|:-------|:-------------------|
+| appchip_id | string | 小应用标识，可忽略，默认为当前小应用 |   
+
+| 返回值    | 说明   |
+|:-------|:-----|
+| string | 路径名称 |
+
+```javascript
+await __A.appchip.getDirTemp();
+```
+
 ## getDirWebview(appchip_id) <Badge type="tip" text="Since 25.3.5.1" /> {#getDirWebview}
 
 获取指定小应用的浏览器控件的数据目录
 
-| 参数         | 类型     | 说明             |
-|:-----------|:-------|:---------------|
-| appchip_id | string | 小应用标识，默认为当前小应用 |   
+| 参数         | 类型     | 说明                 |
+|:-----------|:-------|:-------------------|
+| appchip_id | string | 小应用标识，可忽略，默认为当前小应用 |   
 
 | 返回值    | 说明   |
 |:-------|:-----|
@@ -93,7 +93,7 @@ await __A.appchip.list();
 |:-------|:---|
 | object |    |
 
-返回的对方包含以小应用标识为名称的属性，属性的值为对应小应用的详细信息。
+返回的对象包含以小应用标识为名称的属性，属性的值为对应小应用的详细信息。
 
 ```javascript
 await __A.appchip.list();

@@ -15,7 +15,6 @@ layout: doc
 - 菜单与各种常用窗口；
 - 远程升级与安装；
 - MacOS 下载
-- 代码整理与重构
 - 各种事件的自定义脚本支持；
 
 🚀 新增与优化
@@ -26,10 +25,14 @@ layout: doc
 
 🔧 JS扩展模块
 
+- appchip:
+    - 修改 `getDirAppchip`，`getDirTemp`，`getDirData`，`getDirWebview`，允许指定小应用（默认使用当前小应用）；
+    - 新增 `installFromUrl`，从指定网址安装小应用；
+    - 新增 `uninstall`，卸载指定小应用；
 - mainwin:
     - 新增 `reload`，重新装载浏览器窗口当前网址；
 - core:
-    - 新增 `error`，直接抛出错误，开发调试用；
+    - 新增 `error`，直接抛出错误；
     - 新增 `about`，打开窗口，显示关于信息；
     - 优化 `getArgv`，简化代码逻辑；
 
