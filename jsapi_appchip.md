@@ -4,7 +4,7 @@ layout: doc
 
 # pyChariot.api.appchip <Badge type="tip" text="Since 25.3.5.1" />
 
-小应用管理，运行于 pyChariot 之上小应用的管理与操作
+小应用管理，运行于 pyChariot 之上小应用的管理与操作。
 
 ## getDirAppchip(appchip_id) <Badge type="tip" text="Since 25.3.5.1" /> {#getDirAppchip}
 
@@ -96,7 +96,7 @@ await __A.appchip.list();
 返回的对象包含以小应用标识为名称的属性，属性的值为对应小应用的详细信息。
 
 ```javascript
-await __A.appchip.list();
+await __A.appchip.list2();
 ```
 
 ## run(id, params) <Badge type="tip" text="Since 25.3.5.1" /> {#run}
@@ -113,7 +113,7 @@ await __A.appchip.list();
 | int | 进程号 |
 
 ```javascript
-await __A.appchip.run('calc');
+await __A.appchip.run('default');
 ```
 
 ## runWait(id, params) <Badge type="tip" text="Since 25.3.5.1" /> {#runWait}
@@ -136,10 +136,10 @@ await __A.appchip.run('calc');
 - stderr: 标准错误；
 
 ```javascript
-await __A.appchip.runWait('calc');
+await __A.appchip.runWait('default');
 ```
 
-## installFromUrl(url) <Badge type="tip" text="Since 25.4.15.1" /> {#installFromUrl}
+## installFromUrl(url) <Badge type="tip" text="Since 25.5.1.1" /> {#installFromUrl}
 
 从指定的网址下载安装小应用
 
@@ -151,7 +151,19 @@ await __A.appchip.runWait('calc');
 await __A.appchip.installFromUrl('http://localhost/calc.zip');
 ```
 
-## uninstall(appchip_id, purge) <Badge type="tip" text="Since 25.4.15.1" /> {#uninstall}
+## installFromZip(filepath) <Badge type="tip" text="Since 25.5.1.1" /> {#installFromZip}
+
+从指定的网址下载安装小应用
+
+| 参数       | 类型     | 说明         |
+|:---------|:-------|:-----------|
+| filepath | string | 小应用安装包文件路径 |   
+
+```javascript
+await __A.appchip.installFromZip('/download/calc.zip');
+```
+
+## uninstall(appchip_id, purge) <Badge type="tip" text="Since 25.5.1.1" /> {#uninstall}
 
 卸载指定的小应用，如果 purge 为 false，仅删除程序包，保留相关数据文件。
 

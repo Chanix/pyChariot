@@ -26,9 +26,12 @@ layout: doc
 🔧 JS扩展模块
 
 - appchip:
-    - 修改 `getDirAppchip`，`getDirTemp`，`getDirData`，`getDirWebview`，允许指定小应用（默认使用当前小应用）；
-    - 新增 `installFromUrl`，从指定网址安装小应用；
+    - 修改 `getDirAppchip`，`getDirTemp`，`getDirData`，`getDirWebview`，允许指定小应用（默认为当前小应用）；
+    - 新增 `installFromUrl`，从网址安装小应用；
+    - 新增 `installFromZip`，从文件安装小应用；
     - 新增 `uninstall`，卸载指定小应用；
+- autostart:
+    - 修改 `enable`，`disable`，`isEnable`，允许指定小应用（默认为当前小应用）；
 - mainwin:
     - 新增 `reload`，重新装载浏览器窗口当前网址；
 - core:

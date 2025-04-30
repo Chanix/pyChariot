@@ -6,9 +6,13 @@ layout: doc
 
 设置开机自启，当用户登录图形界面时自动启动小应用。
 
-## enable <Badge type="tip" text="Since 25.4.2.1" /> {#enable}
+## enable(appchip_id) <Badge type="tip" text="Since 25.4.2.1" /> {#enable}
 
-设置开机启动，返回是否成功。
+设置小应用开机启动，返回是否成功。
+
+| 参数         | 类型     | 说明                 |
+|:-----------|:-------|:-------------------|
+| appchip_id | string | 小应用标识，可忽略，默认为当前小应用 |   
 
 | 返回值  | 说明 |
 |:----:|:---|
@@ -18,9 +22,13 @@ layout: doc
 await __A.autostart.enable();
 ```
 
-## disable <Badge type="tip" text="Since 25.4.2.1" /> {#disable}
+## disable(appchip_id) <Badge type="tip" text="Since 25.4.2.1" /> {#disable}
 
-取消开机启动，返回是否成功。
+取消小应用开机启动，返回是否成功。
+
+| 参数         | 类型     | 说明                 |
+|:-----------|:-------|:-------------------|
+| appchip_id | string | 小应用标识，可忽略，默认为当前小应用 |   
 
 | 返回值  | 说明 |
 |:----:|:---|
@@ -30,9 +38,13 @@ await __A.autostart.enable();
 await __A.autostart.disable();
 ```
 
-## isEnabled <Badge type="tip" text="Since 25.4.2.1" /> {#isEnabled}
+## isEnabled(appchip_id) <Badge type="tip" text="Since 25.4.2.1" /> {#isEnabled}
 
-返回当前是否已设置为开机启动
+返回小应用是否已设置为开机启动
+
+| 参数         | 类型     | 说明                 |
+|:-----------|:-------|:-------------------|
+| appchip_id | string | 小应用标识，可忽略，默认为当前小应用 |   
 
 | 返回值  | 说明 |
 |:----:|:---|
