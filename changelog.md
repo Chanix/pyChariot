@@ -19,9 +19,21 @@ layout: doc
 
 🚀 新增与优化
 
+🐞 修补与更正
+
+🔧 JS扩展模块
+
+## 25.5.20.176
+
+[//]: # ([GitHub 下载]&#40;https://github.com/Chanix/pyChariot/releases/tag/v25.4.15.174&#41;)
+
+🚀 新增与优化
+
 - 调整主窗口 `closed` 事件处理；
 
 🐞 修补与更正
+
+- Linux、MacOS 下窗口图标的设置；
 
 🔧 JS扩展模块
 
@@ -30,14 +42,20 @@ layout: doc
     - 新增 `installFromUrl`，从网址安装小应用；
     - 新增 `installFromZip`，从文件安装小应用；
     - 新增 `uninstall`，卸载指定小应用；
+    - 删除原 `list` `list2`；
+    - 新增 `list`，返回小应用的简要信息对象；
 - autostart:
-    - 修改 `enable`，`disable`，`isEnable`，允许指定小应用（默认为当前小应用）；
-- mainwin:
-    - 新增 `reload`，重新装载浏览器窗口当前网址；
+    - 修改 `enable` `disable` `isEnable`，允许指定小应用（默认为当前小应用）；
 - core:
     - 新增 `error`，直接抛出错误；
     - 新增 `about`，打开窗口，显示关于信息；
     - 优化 `getArgv`，简化代码逻辑；
+- env:
+    - 删除 `list`；
+- mainwin:
+    - 新增 `reload`，重新装载浏览器窗口当前网址；
+- memdb:
+    - 新增 `load` `dump`，便于进行数据的装载和导出；
 
 ## 25.4.15.174
 

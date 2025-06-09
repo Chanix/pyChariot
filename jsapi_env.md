@@ -74,21 +74,6 @@ await __A.env.pop('nnn', 12345);    // 获取环境变量 nnn，默认返回 "12
 await __A.env.pop('nnn', "vvv");    // 获取环境变量 nnn，默认返回 "vvv"
 ```
 
-## list() <Badge type="tip" text="Since 25.3.5.1" /> {#list}
-
-::: warning 已废弃，将在后继版本中删除。
-:::
-
-获取当前所有的环境变量列表
-
-|  返回值   | 说明             |
-|:------:|:---------------|
-| object | 一个包含环境变量键值对的字典 |
-
-```javascript
-env = await __A.env.list();
-```
-
 ## getsep() <Badge type="tip" text="Since 25.3.5.1" /> {#getsep}
 
 获取指定环境变量中使用的分隔符
